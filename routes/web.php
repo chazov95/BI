@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'IndexController@index');
+Route::get('/company/dot/id', 'IndexController@companyDot');
 /*Route::get('/login', 'IndexController@index');
 Route::get('/confirm', 'IndexController@index');
 Route::get('/registration', 'IndexController@index');

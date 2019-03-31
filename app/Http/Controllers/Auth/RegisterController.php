@@ -50,8 +50,11 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'real_name' => ['required', 'string', 'max:255'],
+            'real_lastname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            /*'avatar' => 'image|dimensions:max_width=100,max_height=100'*/
         ]);
     }
 
@@ -63,10 +66,22 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        $companys_user_permission = array( 1 );
+        $companys_user_permission_serialize = serialize( $companys_user_permission );
+
+       /* $path = $data['avatar']->store('public/users/photo');*/
         return User::create([
             'name' => $data['name'],
+            'real_name' => $data['real_name'],
+            'real_lastname' => $data['real_lastname'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'avatar' => '123',
+            'companys_user_permission' => $companys_user_permission_serialize,
+            'companys_admin_permission' => '',
+            'theme' => 'default',
+            'global_admin_permission' => false,
         ]);
     }
 }
