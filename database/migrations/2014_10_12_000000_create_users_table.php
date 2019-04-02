@@ -13,16 +13,14 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('real_name');
-            $table->string('real_lastname');
-            $table->string('companys_user_permission')->default('a:1:{i:0;i:1;}');
-            $table->string('companys_admin_permission')->default(' ');
-            $table->boolean('global_admin_permission')->default(false);
+            $table->string('name', 120);
+            $table->string('real_name', 120);
+            $table->string('real_lastname', 200);
+            $table->string('global_permission')->default('user');
             $table->string('theme')->default('default');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password', 100);
             $table->rememberToken();
             $table->timestamps();
             $table->string('avatar')->default('');

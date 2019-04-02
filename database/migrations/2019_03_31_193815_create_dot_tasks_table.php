@@ -15,6 +15,15 @@ class CreateDotTasksTable extends Migration
     {
         Schema::create('dot_tasks', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('dot_id');
+            $table->integer('responsible_id'); //ответственный
+            $table->integer('company_id');
+            $table->string('name', 200);
+            $table->text('description', 4000);
+            $table->date('deadline');
+            $table->string('status')->default('new');//на каком этапе находится
+            $table->integer('author_id');//кто создал 
+            $table->integer('from_user_id');// задача создана на основании идеи покупателя
             $table->timestamps();
         });
     }

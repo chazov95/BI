@@ -15,6 +15,12 @@ class CreateChartsTable extends Migration
     {
         Schema::create('charts', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('type')->default('line');
+            $table->string('title');
+            $table->boolean('up_or_down')->default(true);// true - это возрастание. повышение или понижение показателя будет  считаться успехом
+            $table->text('desription');
+            $table->string('data');//двумерный массив значение
+            $table->string('y_name');
             $table->timestamps();
         });
     }
