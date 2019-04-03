@@ -13,10 +13,9 @@ class CreateUsersCompaniesTable extends Migration
      */
     public function up()
     {
-        Schema::create('users__companies', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('users_id');
+        Schema::create('companies_users', function (Blueprint $table) {
             $table->integer('companies_id');
+            $table->integer('users_id');
             $table->timestamps();
         });
     }
