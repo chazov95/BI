@@ -18,7 +18,7 @@ class CreateCompaniesTable extends Migration
             $table->integer('admin_id');
             $table->string('name');
             $table->text('description_full');
-            $table->string('desription_short');
+            $table->string('description_short');
             $table->string('logo')->default('');
             $table->string('adress');
             $table->string('phone');

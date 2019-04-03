@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Company;
+
 
 class HomeController extends Controller
 {
@@ -23,7 +25,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+       
+        $companies = Company::select(['id', 'name', 'description_short', 'logo'])->get();
+         return view('home')->with(['companies'=> $companies
+     ]);
+        
+
     }
   
 }
