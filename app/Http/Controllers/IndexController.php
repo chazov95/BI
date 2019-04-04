@@ -17,6 +17,9 @@ class IndexController extends Controller
  	return view('companyIndex');
  }
 
- 
+ public function registerCompany()
+ {
+ 	return view('registerCompany');
+ }
 
 }

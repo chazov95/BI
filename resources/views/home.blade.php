@@ -2,16 +2,19 @@
 
 @section('main')
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-<section class="jumbotron text-center">
-    <div class="container">
-      <h1 class="jumbotron-heading">Album example</h1>
-      <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-      <p>
-        <a href="#" class="btn btn-primary my-2">Main call to action</a>
-        <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-      </p>
-    </div>
-  </section>
+
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center  pt-3 pb-2 mb-3 border-bottom">
+          <img src="https://static.tildacdn.com/tild3532-6130-4437-b966-653766626265/1.jpg" class="rounded-circle" alt="" height="40" width="40">
+<button type="button" class="btn btn-outline-danger" onclick="location.href = '{{ url('/registerCompany') }}'">Зарегистрировать компанию на BI</button>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group mr-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary">Мои компании</button>
+            <button type="button" class="btn btn-sm btn-outline-success" onclick="location.href = '{{ url('/home') }}'">Все компании</button>
+          </div>
+         
+        </div>
+      </div>
 
   <div class="album py-5 bg-light">
     <div class="container">
@@ -23,12 +26,13 @@
           <div class="card mb-4 shadow-sm">
             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect fill="#55595c" width="100%" height="100%"/><text fill="#eceeef" dy=".3em" x="50%" y="50%">Thumbnail</text></svg>
             <div class="card-body">
+              <h4> {{ $company->name }} </h4>
               <p class="card-text">{{ $company->description_short }}</p>
               <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
+              <div class="btn-group" role="group" aria-label="Basic example">
+               <button type="button" class="btn btn-warning btn-sm" >Идея!</button>
+               <button type="button" class="btn btn-success btn-sm" >Вступить</button>
+             </div>
                 <small class="text-muted">9 mins</small>
               </div>
             </div>
@@ -36,11 +40,21 @@
         </div>
 @endforeach
 
-<?php $companies2 = DB::table('companies')->paginate(1);
-echo $companies2; ?>
+
       
       </div>
+
+<div class="row">
+  <div class="col-12">
+<p class="tex-center">  
+    <?php $companies2 = DB::table('companies')->paginate(1);
+echo $companies2; ?>
+</p>
+</div>
+</div>
+
     </div>
+
   </div>
 </main>
 @endsection

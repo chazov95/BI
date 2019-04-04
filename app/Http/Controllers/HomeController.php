@@ -26,11 +26,10 @@ class HomeController extends Controller
     public function index()
     {
        
-        $companies = Company::select(['id', 'name', 'description_short', 'logo'])->get();
-         return view('home')->with(['companies'=> $companies
+        $companies = Company::paginate(1);
+         return view('home', compact($companies))->with(['companies'=> $companies
      ]);
         
-
     }
   
 }

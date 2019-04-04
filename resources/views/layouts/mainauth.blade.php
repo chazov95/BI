@@ -45,7 +45,7 @@
 <!-- Yandex.Metrika counter --> <script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter39705265 = new Ya.Metrika({ id:39705265, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/39705265" style="position:absolute; left:-9999px;" alt="Yandex.Metrika" /></div></noscript> <!-- /Yandex.Metrika counter -->
 
 <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-       <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="https://bootstrap-4.ru/docs/4.3.1/examples/dashboard/#">Company name</a>
+       <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="{{ url('/home') }}">BI.ru.net</a>
   <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
   <ul class="navbar-nav px-3">
   
@@ -95,7 +95,7 @@
           <li class="nav-item">
            <a class="nav-link active" href="https://bootstrap-4.ru/docs/4.3.1/examples/dashboard/#">
              
-             <img src="https://pp.userapi.com/c638731/v638731467/33844/1hcliUEJ30s.jpg?ava=1" class="rounded-circle" width="40" height="40"> <?php echo Auth::user()->real_name . ' ' . Auth::user()->real_lastname; ?>
+             <img src='<?php echo Auth::user()->avatar ?>' class="rounded-circle" width="40" height="40"> <?php echo Auth::user()->real_name . ' ' . Auth::user()->real_lastname; ?>
 
            </a>
           </li>
