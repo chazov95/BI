@@ -35,6 +35,9 @@
           </div>
         </div>
 @endforeach
+
+<?php $companies2 = DB::table('companies')->paginate(1);
+echo $companies2; ?>
       
       </div>
     </div>

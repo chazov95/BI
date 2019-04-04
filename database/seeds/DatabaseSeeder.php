@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
 
-         DB::table('users')->insert([
+     DB::table('users')->insert([
             'name' => 'admin',
             'email' => 'a@g4v.ru',
             'real_name' => 'Сергей',
@@ -25,6 +25,18 @@ class DatabaseSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
             'remember_token' => str_random(10),
+            
+        ]);
+
+          DB::table('companies')->insert([
+            'admin_id' => '1',
+            'name' => 'Buisness Intersections',
+            'description_full' => 'BI (buisness intersections) - это инструмент для системного анализа точек контакта между бизнесом и людьми ',
+            'description_short' => 'BI (buisness intersections) - это инструмент для системного анализа точек контакта между бизнесом и людьми ',
+            'logo' => 'img/default/dot.png',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            
             
         ]);
     }

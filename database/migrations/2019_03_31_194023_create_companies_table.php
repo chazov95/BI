@@ -20,9 +20,9 @@ class CreateCompaniesTable extends Migration
             $table->text('description_full');
             $table->string('description_short');
             $table->string('logo')->default('');
-            $table->string('adress');
-            $table->string('phone');
-            $table->string('site');
+            $table->string('adress')->default('');
+            $table->string('phone')->default('');
+            $table->string('site')->default('');
             $table->timestamps();
         });
     }
