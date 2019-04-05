@@ -14,8 +14,10 @@ class CreateUsersCompaniesTable extends Migration
     public function up()
     {
         Schema::create('companies_users', function (Blueprint $table) {
-            $table->integer('companies_id');
-            $table->integer('users_id');
+            $table->integer('company_id')->unsigned()->index();
+            $table->integer('user_id')->unsigned()->index();
+            /*$table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('company_id')->references('id')->on('companies');*/
             $table->timestamps();
         });
     }

@@ -20,6 +20,9 @@
     <div class="container">
 
       <div class="row">
+<!--  
+$companies = App\Company::has('users', '=', 1)->get();
+ ?>  -->
 
 @foreach($companies as $company)
         <div class="col-md-4">
