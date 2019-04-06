@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Company;
-
-
+use Auth;
+use App\User;
 class HomeController extends Controller
 {
     /**
@@ -25,10 +25,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-       
-        $companies = Company::paginate(1);
-         return view('home', compact($companies))->with(['companies'=> $companies
-     ]);
+
+$userID = Auth::user()->id;
+$user = User::find($userID);
+$companies=$user->companies()->paginate(1);
+
+      /* $userID = Auth::user()->id;*/
+      /* $companies = Company::where('user_id', '1')->paginate(1);*/
+         return view('home'/*, compact($companies)*/)->with(['companies'=> $companies]);
         
     }
   

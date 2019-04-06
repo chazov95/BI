@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
 
 DB::table('users')->insert([
             'name' => 'AlexanderCh',
-            'email' => 'oitv18@gmail.ru',
+            'email' => 'oitv18@gmail.com',
             'real_name' => 'Александр',
             'real_lastname' => 'Chazov',
             'global_permission' => 'superAdmin',
@@ -69,6 +69,14 @@ DB::table('companies')->insert([
 
            DB::table('companies_users')->insert([
             'company_id' => '1',
+            'user_id' => '1',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            
+            
+        ]);
+            DB::table('companies_users')->insert([
+            'company_id' => '2',
             'user_id' => '1',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),

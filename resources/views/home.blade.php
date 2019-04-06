@@ -20,9 +20,11 @@
     <div class="container">
 
       <div class="row">
-<!--  
-$companies = App\Company::has('users', '=', 1)->get();
- ?>  -->
+<?php 
+/*        $userID = Auth::user()->id;
+$user = App\User::find($userID);
+$companies=$user->companies;*/
+?>  
 
 @foreach($companies as $company)
         <div class="col-md-4">
@@ -49,9 +51,10 @@ $companies = App\Company::has('users', '=', 1)->get();
 
 <div class="row">
   <div class="col-12">
-<p class="tex-center">  
-    <?php $companies2 = DB::table('companies')->paginate(1);
-echo $companies2; ?>
+<p class="tex-center"> 
+{{$companies}}
+
+
 </p>
 </div>
 </div>
