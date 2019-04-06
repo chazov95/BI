@@ -9,8 +9,9 @@
 <button type="button" class="btn btn-outline-danger" onclick="location.href = '{{ url('/registerCompany') }}'">Зарегистрировать компанию на BI</button>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group mr-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Мои компании</button>
-            <button type="button" class="btn btn-sm btn-outline-success" onclick="location.href = '{{ url('/home') }}'">Все компании</button>
+            <a href="{{ url('/companies/my') }}" class="btn btn-sm btn-outline-secondary {{ $my_c }}" role="button" > Мои компании</a>
+             <a href="{{ url('/companies/all') }}" class="btn btn-sm btn-outline-success {{ $allC }}" role="button" > Все компании</a>
+         
           </div>
          
         </div>
@@ -20,23 +21,21 @@
     <div class="container">
 
       <div class="row">
-<?php 
-/*        $userID = Auth::user()->id;
-$user = App\User::find($userID);
-$companies=$user->companies;*/
-?>  
+
 
 @foreach($companies as $company)
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect fill="#55595c" width="100%" height="100%"/><text fill="#eceeef" dy=".3em" x="50%" y="50%">Thumbnail</text></svg>
             <div class="card-body">
-              <h4> {{ $company->name }} </h4>
+              <h4>
+<a href="{{ url('/companies') }}/{{ $company->id }}">
+               {{ $company->name }}</h4></a>
               <p class="card-text">{{ $company->description_short }}</p>
               <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group" role="group" aria-label="Basic example">
                <button type="button" class="btn btn-warning btn-sm" >Идея!</button>
-               <button type="button" class="btn btn-success btn-sm" >Вступить</button>
+               <button type="button" class="btn btn-success btn-sm" >Присоединиться</button>
              </div>
                 <small class="text-muted">9 mins</small>
               </div>

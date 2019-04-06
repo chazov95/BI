@@ -30,6 +30,7 @@ Route::get('/{companyName}/dot/{id}/edit', 'IndexController@index');*/
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('/companies/my', 'HomeController@index')->name('home');
+Route::get('/companies/all', 'HomeController@all')->name('allCompanies');
+Route::get('/companies/{id}', 'HomeController@companyHome');
 
