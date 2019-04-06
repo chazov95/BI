@@ -12,19 +12,8 @@
 */
 
 Route::get('/', 'IndexController@index');
-Route::get('/company/dot/id', 'IndexController@companyDot');
 Route::get('/registerCompany', 'IndexController@registerCompany')->name('registerCompany');
-/*Route::get('/login', 'IndexController@index');
-Route::get('/confirm', 'IndexController@index');
-Route::get('/registration', 'IndexController@index');
-Route::get('/{companyName}', 'IndexController@index');
-Route::get('/{companyName}/users', 'IndexController@index');
-Route::get('/{companyName}/tasks', 'IndexController@index');
-Route::get('/{companyName}/search', 'IndexController@index');
-Route::get('/{companyName}/dot/{id}', 'IndexController@index');
-Route::get('/{companyName}/add/chart', 'IndexController@index');
-Route::get('/{companyName}/dot/{id}/edit', 'IndexController@index');*/
-
+Route::get('/company/{id}/edit', 'IndexController@editCompany')->name('editCompany');
 
 
 
@@ -32,5 +21,5 @@ Auth::routes();
 
 Route::get('/companies/my', 'HomeController@index')->name('home');
 Route::get('/companies/all', 'HomeController@all')->name('allCompanies');
-Route::get('/companies/{id}', 'HomeController@companyHome');
+Route::get('/companies/{id}', 'HomeController@companyHome')->name('companyHome');
 

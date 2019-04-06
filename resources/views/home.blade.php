@@ -29,7 +29,7 @@
             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect fill="#55595c" width="100%" height="100%"/><text fill="#eceeef" dy=".3em" x="50%" y="50%">Thumbnail</text></svg>
             <div class="card-body">
               <h4>
-<a href="{{ url('/companies') }}/{{ $company->id }}">
+<a href="{{ route('companyHome',['id'=>$company->id]) }}">
                {{ $company->name }}</h4></a>
               <p class="card-text">{{ $company->description_short }}</p>
               <div class="d-flex justify-content-between align-items-center">

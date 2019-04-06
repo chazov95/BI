@@ -21,7 +21,7 @@ class CreateDotTable extends Migration
             $table->text('desription_full', 4000);//не больше 4000 символов
             $table->string('desription_short');
             $table->integer('company_id');
-            $table->integer('charts_id');
+            $table->integer('chart_id');
             $table->timestamps();
         });
     }

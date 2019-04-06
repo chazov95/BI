@@ -52,10 +52,13 @@ class HomeController extends Controller
         ]);
     }
   
-public function companyHome()
+public function companyHome($id)
 {
-    
-    return view('companyIndex');
+$company=Company::find($id);
+
+    return view('companyIndex', compact($company))->with([
+        'company'=>$company
+    ]);
 }
 
 

@@ -41,4 +41,22 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Company', 'companies_users');
     }
+
+    //у пользователя может быть много идей
+    public function ideas()
+    {
+        return $this->hasMany('App\Idea');
+    }
+
+//пользователь может быть автором многих задач
+      public function authors()
+    {
+        return $this->hasMany('App\Dot_tasks', 'autor_id');
+    }
+
+    //пользователь может быть ответственным по многим задачам
+      public function responsibles()
+    {
+        return $this->hasMany('App\Dot_tasks', 'responsible_id');
+    }
 }

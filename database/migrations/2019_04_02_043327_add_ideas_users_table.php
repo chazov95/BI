@@ -15,7 +15,7 @@ class AddIdeasUsersTable extends Migration
     {
         Schema::create('ideas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('author_id');
+            $table->integer('user_id');
             $table->integer('company_id');
             $table->string('status');
             $table->string('name');

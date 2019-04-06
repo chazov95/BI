@@ -17,6 +17,7 @@ class CreateChartsTable extends Migration
             $table->bigIncrements('id');
             $table->string('type')->default('line');
             $table->string('title');
+            $table->string('company_id');
             $table->boolean('up_or_down')->default(true);// true - это возрастание. повышение или понижение показателя будет  считаться успехом
             $table->text('desription');
             $table->string('data');//двумерный массив значение
