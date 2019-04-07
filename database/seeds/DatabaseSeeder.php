@@ -13,18 +13,17 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
 
-     DB::table('users')->insert([
+DB::table('users')->insert([
             'name' => 'admin',
             'email' => 'a@g4v.ru',
             'real_name' => 'Сергей',
             'real_lastname' => 'Чазов',
             'global_permission' => 'superAdmin',
             'theme' => 'default',
-            'password' => bcrypt('istfac2007'),
+            'password' => bcrypt('Aqwerty123'),
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
             'remember_token' => str_random(10),
-            
         ]);
 
 DB::table('users')->insert([
@@ -34,15 +33,14 @@ DB::table('users')->insert([
             'real_lastname' => 'Chazov',
             'global_permission' => 'superAdmin',
             'theme' => 'default',
-            'password' => bcrypt('istfac2007'),
+            'password' => bcrypt('Aqwerty123'),
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
             'remember_token' => str_random(10),
-            
         ]);
 
 
-          DB::table('companies')->insert([
+DB::table('companies')->insert([
             'admin_id' => '1',
             'name' => 'Buisness Intersections',
             'description_full' => 'BI (buisness intersections) - это инструмент для системного анализа точек контакта между бизнесом и людьми ',
@@ -62,12 +60,10 @@ DB::table('companies')->insert([
             'logo' => 'img/default/dot.png',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
-            
-            
         ]);
 
 
-           DB::table('companies_users')->insert([
+DB::table('companies_users')->insert([
             'company_id' => '1',
             'user_id' => '1',
             'created_at' => date('Y-m-d H:i:s'),
@@ -75,21 +71,47 @@ DB::table('companies')->insert([
             
             
         ]);
-            DB::table('companies_users')->insert([
+DB::table('companies_users')->insert([
             'company_id' => '2',
             'user_id' => '1',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
-            
-            
         ]);
-            DB::table('companies_users')->insert([
+DB::table('companies_users')->insert([
             'company_id' => '1',
             'user_id' => '2',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
-            
-            
         ]);
+DB::table('dots')->insert([
+            'name' => 'Сайт bi.ru.net',
+            'description_full' => 'Это главная точка контакта в нашем проекте. Я вижу в ней несколько путей развития: наращивать функционал (это сейчас важнее всего), улучшать внешний вид, тестировать на баги и улучшать способы обратной связи. Ну и да: интегрировать сайт со всем, что интегрируется. например с Б24',
+            'description_short' => 'Подточки: формы обратной связи, главная страница, чат поддержки',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            'company_id' => '1',
+            'chart_id' => '1',
+            ]);
+
+DB::table('dots')->insert([
+            'name' => 'Телефонные звонки',
+            'description_full' => 'Телефонные звонки бывают двух видов: холодные, когда мы предлагаем бизнесу бесплатно поучаствовать зарегистрирвоаться и работать с нашим сайтом, и горячие (обратные), когда мы звоним человеку, который уже проявил интерес. Вторые ценнее',
+            'description_short' => 'Делится на горячие и холодные звонки',
+            'company_id' => '1',
+            'chart_id' => '2',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            ]);
+
+DB::table('dots')->insert([
+            'name' => 'тестовая точка',
+            'description_full' => 'тестовое полное описание',
+            'description_short' => 'Тестовое коротко описание',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            'company_id' => '2',
+            'chart_id' => '3',
+            ]);
+
     }
 }

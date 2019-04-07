@@ -31,9 +31,7 @@ class HomeController extends Controller
     $companies=$user->companies()->paginate(1);
     $myC='disabled';
     $allC='';
-      /* $userID = Auth::user()->id;*/
-      /* $companies = Company::where('user_id', '1')->paginate(1);*/
-         return view('home'/*, compact($companies)*/)->with(['companies'=> $companies,
+    return view('home')->with(['companies'=> $companies,
             'my_c'=> $myC,
             'allC' => $allC
         ]);

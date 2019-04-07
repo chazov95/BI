@@ -23,7 +23,7 @@ public function ideas()
 //у компании множество точек
 public function dots()
     {
-        return $this->hasMany('App\Idea');
+        return $this->hasMany('App\Dot');
     }
 
 // у компании может быть много таблиц

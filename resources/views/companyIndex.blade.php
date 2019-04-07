@@ -36,24 +36,23 @@
 </div>
 
       
-<div class="card-deck">
-  <div class="card">
+<div class="album py-5 bg-light">
+  <div class="containe">
+    <div class="row">
+      
+@foreach($company->dots as $dot)  
+<div class="col-md-4">
+  <div class="card mb-4 shadow-sm">
     <div class="card-body"><p class="text-center">
       <img src="https://static.tildacdn.com/tild3532-6130-4437-b966-653766626265/1.jpg" class="rounded-circle" alt="" height="40" width="40" align="cover-container"><br>
-      <b>Card subtitle</b></p>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <b>{{ $dot->name }}</b></p>
+      <p class="card-text">{{ $dot->description_short }}</p>
     </div>
   </div>
-  <div class="card">
-    <div class="card-body">
-      <h4 class="card-title">Card title</h4>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-body">
-      <h4 class="card-title">Card title</h4>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+</div>
+@endforeach
+
+
     </div>
   </div>
 </div>

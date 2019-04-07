@@ -22,6 +22,7 @@ public function __construct()
     //проверяем: есть ли компании с $ID, в которых зарегистрирован пользователь.
 
     $company=Company::find($id);
+   
     return view('companyIndex', compact($company))->with([
         'company'=>$company
     ]);
