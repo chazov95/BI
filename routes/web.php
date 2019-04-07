@@ -20,6 +20,7 @@ Route::get('/company/{id}/edit', 'IndexController@editCompany')->name('editCompa
 Auth::routes();
 
 Route::get('/companies/my', 'HomeController@index')->name('home');
+Route::get('/companies/{id}/idea', 'HomeController@idea')->name('idea');
 Route::get('/companies/all', 'HomeController@all')->name('allCompanies');
-Route::get('/companies/{id}', 'HomeController@companyHome')->name('companyHome');
+Route::get('/companies/{id}', 'CompanyController@companyHome')->name('companyHome');
 

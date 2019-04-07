@@ -52,7 +52,7 @@ class HomeController extends Controller
         ]);
     }
   
-public function companyHome($id)
+/*public function companyHome($id)
 {
 
     //проверяем: есть ли компании с $ID, в которых зарегистрирован пользователь.
@@ -71,7 +71,11 @@ else{
         'company'=>$company
     ]);
     }
-}
+}*/
 
+ public function idea($id)
+    {
+         return view('idea');
+    }
 
 }
