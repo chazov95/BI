@@ -149,5 +149,68 @@ DB::table('dots')->insert([
             'updated_at' => date('Y-m-d H:i:s'),
             ]);
 
+//две точки, подчиненные точки Интерфейс
+
+DB::table('dots')->insert([
+            'name' => 'Формы',
+            'description_full' => 'На сайте очень много форм - нужно каждую вынести в отдельную задачу',
+            'description_short' => 'На сайте очень много форм - нужно каждую вынести в отдельную задачу',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            'company_id' => '1',
+            'chart_id' => '1',
+            'parent_id'=>'4',
+            ]);
+
+DB::table('dots')->insert([
+            'name' => 'Страницы редактирования',
+            'description_full' => 'Каждую страницу редактирования нужно вынести в отдельную задачу',
+            'description_short' => 'Каждую страницу редактирования нужно вынести в отдельную задачу',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            'company_id' => '1',
+            'chart_id' => '1',
+            'parent_id'=>'4',
+            ]);
+//задачи по точкам
+DB::table('dot_tasks')->insert([
+            'name' => 'Сделать форму подачи идей',
+            'dot_id' => '5',
+            'responsible_id' => '2',
+            'company_id' => '1',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            'description' => 'Когда нажимаешь на Идея у любого пользователя должна быть возможность оставить идею, заполнив поля Проблема, Состояние, Решение',
+            'deadline'=>'2019-09-1',
+            'status'=>'3',
+            'autor_id'=>'1'
+            ]);
+/*DB::table('dot_tasks')->insert([
+            'name' => 'Сделать форму подачи идей',
+            'dot_id' => '5',
+            'responsible_id' => '1',
+            'company_id' => '1',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            'description' => 'Когда нажимаешь на Идея у любого пользователя должна быть возможность оставить идею, заполнив поля Проблема, Состояние, Решение',
+            'deadline'=>'2019-06-23',
+            'status'=>'1',
+            'autor_id'=>'2'
+            ]);
+DB::table('dot_tasks')->insert([
+            'name' => 'Сделать форму подачи идей',
+            'dot_id' => '5',
+            'responsible_id' => '2',
+            'company_id' => '1',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            'description' => 'Когда нажимаешь на Идея у любого пользователя должна быть возможность оставить идею, заполнив поля Проблема, Состояние, Решение',
+            'deadline'=>'2019-09-1',
+            'status'=>'3',
+            'autor_id'=>'1'
+            ]);*/
+
+
+
     }
 }

@@ -21,7 +21,7 @@ class CreateDotTasksTable extends Migration
             $table->string('name', 200);
             $table->text('description', 4000);
             $table->date('deadline');
-            $table->string('status')->default('new');//на каком этапе находится
+            $table->string('status')->default('1');//на каком этапе находится
             $table->integer('autor_id');//кто создал 
             $table->integer('from_user_id');// задача создана на основании идеи покупателя
             $table->timestamps();

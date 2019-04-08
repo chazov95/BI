@@ -35,12 +35,14 @@ public function __construct()
     public function dotIndex($id, $dotId)
 {
 
-    
-
     $dot=Dot::find($dotId);
     $company=Company::find($id);
-    dump($company);
-    return view('dotIndex', compact($dot, $company));
+$child=$company->dots->where('parent_id','=', $dotId);
+    return view('dotIndex', compact($company, $dot))->with([
+        'company'=>$company,
+        'dot'=>$dot,
+        'child'=>$child,
+         ]);
     
 }
 
