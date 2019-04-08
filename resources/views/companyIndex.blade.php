@@ -40,12 +40,12 @@
   <div class="containe">
     <div class="row">
       
-@foreach($company->dots as $dot)  
+@foreach($mainDots as $dot)  
 <div class="col-md-4">
   <div class="card mb-4 shadow-sm">
     <div class="card-body"><p class="text-center">
       <img src="https://static.tildacdn.com/tild3532-6130-4437-b966-653766626265/1.jpg" class="rounded-circle" alt="" height="40" width="40" align="cover-container"><br>
-      <b>{{ $dot->name }}</b></p>
+      <a href="{{ route('dotIndex',['id'=>$company->id, 'dotId'=>$dot->id]) }}"><b>{{ $dot->name }}</b></a></p>
       <p class="card-text">{{ $dot->description_short }}</p>
     </div>
   </div>

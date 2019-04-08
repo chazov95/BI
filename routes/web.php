@@ -14,7 +14,7 @@
 Route::get('/', 'IndexController@index');
 Route::get('/registerCompany', 'IndexController@registerCompany')->name('registerCompany');
 Route::get('/company/{id}/edit', 'IndexController@editCompany')->name('editCompany');
-
+Route::get('/company/{id}/dot/{dotId}', 'CompanyController@dotIndex')->name('dotIndex');
 
 
 Auth::routes();
