@@ -50,7 +50,7 @@ class HomeController extends Controller
         ]);
     }
   
-/*public function companyHome($id)
+/*public function companyHome($id) коммент
 {
 
     //проверяем: есть ли компании с $ID, в которых зарегистрирован пользователь.
