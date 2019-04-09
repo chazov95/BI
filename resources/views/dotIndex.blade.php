@@ -105,66 +105,74 @@
           </thead>
           <tbody>
             <tr>
-              <td><div class="card mb-2">
-  <div class="card-body">
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">
-      Some quick example text to build on the card title
-    </p>
-     <a href="#!" class="card-link">Card link</a>
-  </div>
-</div></td>
-              <td><div class="card mb-2">
-  <div class="card-body">
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">
-      Some quick example text to build on the card title
-    </p>
-    <input type="range" class="custom-range" value="3" min="0" max="4" step="1" id="customRange3">
-  </div>
-</div>
-
-<div class="card mb-2">
-  <div class="card-body">
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">
-      Some quick example text to build on the card title
-    </p>
-    <input type="range" class="custom-range" value="3" min="0" max="4" step="1" id="customRange3">
-  </div>
-</div>
-
-</td>
-              <td><div class="card mb-2">
-  <div class="card-body">
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">
-      Some quick example text to build on the card title
-    </p>
-     <a href="#!" class="card-link">Card link</a>
-  </div>
-</div></td>
-              <td><div class="card mb-2">
-  <div class="card-body">
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">
-      Some quick example text to build on the card title
-    </p>
-     <a href="#!" class="card-link">Card link</a>
-  </div>
-</div></td>
-              <td><div class="card mb-2">
-  <div class="card-body">
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">
-      Some quick example text to build on the card title
-    </p>
-     <a href="#!" class="card-link">Card link</a>
-  </div>
-</div></td>
-               
-           
-          </tbody>
+              <td class="w-25">
+                @foreach($tasks_status1 as $task1)
+                <div class="card mb-2">
+                  <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted">{{ $task1->name }}</h6>
+                    <p class="card-text">
+                      {{ $task1->created_at }}
+                    </p>
+                     <a href="#!" class="card-link">Card link</a>
+                  </div>
+                </div>
+                @endforeach
+              </td>
+             <td class="w-25">
+               @foreach($tasks_status2 as $task2)
+               <div class="card mb-2">
+                 <div class="card-body">
+                   <h6 class="card-subtitle mb-2 text-muted">{{ $task2->name }}</h6>
+                   <p class="card-text">
+                     {{ $task2->created_at }}
+                   </p>
+                    <a href="#!" class="card-link">Card link</a>
+                 </div>
+               </div>
+               @endforeach
+             </td>
+              <td class="w-25">
+               @foreach($tasks_status3 as $task3)
+               <div class="card mb-2">
+                 <div class="card-body">
+                   <h6 class="card-subtitle mb-2 text-muted">{{ $task3->name }}</h6>
+                   <p class="card-text">
+                     {{ $task3->created_at }}
+                   </p>
+                    <a href="#!" class="card-link">Card link</a>
+                 </div>
+               </div>
+               @endforeach
+             </td>
+              <td class="w-25">
+               @foreach($tasks_status4 as $task4)
+               <div class="card mb-2">
+                 <div class="card-body">
+                   <h6 class="card-subtitle mb-2 text-muted">{{ $task4->name }}</h6>
+                   <p class="card-text">
+                     {{ $task4->created_at }}
+                   </p>
+                    <a href="#!" class="card-link">Card link</a>
+                 </div>
+               </div>
+               @endforeach
+             </td>
+              <td class="w-25">
+               @foreach($tasks_status5 as $task5)
+               <div class="card mb-2">
+                 <div class="card-body">
+                   <h6 class="card-subtitle mb-2 text-muted">{{ $task5->name }}</h6>
+                   <p class="card-text">
+                     {{ $task5->created_at }}
+                   </p>
+                    <a href="#!" class="card-link">Card link</a>
+                 </div>
+               </div>
+               @endforeach
+                
+             </td> 
+            </tr>
+           </tbody>
         </table>
       </div>
 
