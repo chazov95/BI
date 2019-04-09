@@ -19,7 +19,7 @@ class Dot_task extends Model
     }
 
     // у задачи может быть только один ответственны
-    public function autor()
+    public function author()
     {
         return $this->belongsTo('App\User');
     }

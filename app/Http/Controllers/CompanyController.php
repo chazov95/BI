@@ -21,6 +21,53 @@ public function __construct()
 
     public function companyHome($id)
 {
+  $userID = Auth::user()->id;
+  $user = User::find($userID);
+     $tasks_status1=DB::table('dot_tasks')->where([
+  ['status', '=', '1'],
+  ['responsible_id', '=', $userID],
+  ['company_id', '=', $id],
+    ])->orWhere([
+  ['status', '=', '1'],
+  ['author_id', '=', $userID],
+  ['company_id', '=', $id],
+    ])->get();
+ $tasks_status2=DB::table('dot_tasks')->where([
+  ['status', '=', '2'],
+  ['responsible_id', '=', $userID],
+  ['company_id', '=', $id],
+    ])->orWhere([
+  ['status', '=', '2'],
+  ['author_id', '=', $userID],
+  ['company_id', '=', $id],
+    ])->get();
+  $tasks_status3=DB::table('dot_tasks')->where([
+  ['status', '=', '3'],
+  ['responsible_id', '=', $userID],
+  ['company_id', '=', $id],
+    ])->orWhere([
+  ['status', '=', '3'],
+  ['author_id', '=', $userID],
+  ['company_id', '=', $id],
+    ])->get();
+   $tasks_status4=DB::table('dot_tasks')->where([
+  ['status', '=', '4'],
+  ['responsible_id', '=', $userID],
+  ['company_id', '=', $id],
+    ])->orWhere([
+  ['status', '=', '4'],
+  ['author_id', '=', $userID],
+  ['company_id', '=', $id],
+    ])->get();
+    $tasks_status5=DB::table('dot_tasks')->where([
+  ['status', '=', '5'],
+  ['responsible_id', '=', $userID],
+  ['company_id', '=', $id],
+    ])->orWhere([
+  ['status', '=', '5'],
+  ['author_id', '=', $userID],
+  ['company_id', '=', $id],
+    ])->get();
 
     //проверяем: есть ли компании с $ID, в которых зарегистрирован пользователь.
 
@@ -29,6 +76,12 @@ public function __construct()
     return view('companyIndex', compact($company))->with([
         'company'=>$company,
         'mainDots'=>$mainDots,
+        'tasks_status1'=>$tasks_status1,
+        'tasks_status2'=>$tasks_status2,
+        'tasks_status3'=>$tasks_status3,
+        'tasks_status4'=>$tasks_status4,
+        'tasks_status5'=>$tasks_status5,
+        'user'=>$user,
     ]);
 
 }

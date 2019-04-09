@@ -12,11 +12,15 @@
             <button type="button" class="btn btn-sm btn-outline-success">Графики</button>
             <button type="button" class="btn btn-sm btn-outline-success">Идеи клиентов</button>
           </div>
-          
+        </div>
+         <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group mr-2">
+            <button type="button" class="btn btn-sm btn-outline-success">Редактировать компанию</button>
+          </div>
         </div>
       </div>      
 
-<div class="container">
+<div class="container col-md-9 ml-sm-auto col-lg-12 col-xl-12 px-4">
 <div class="text-center">
     <img class="d-block mx-auto " src="{{ url($company->logo) }}" alt="" width="72" height="72">
     <h2>{{ $company->name }}</h2>
@@ -36,7 +40,7 @@
 </div>
 
       
-<div class="album py-5 bg-light">
+<div class="album py-3">
   <div class="containe">
     <div class="row">
       
@@ -64,9 +68,9 @@
 <div class="container">
   <div class="row">
     <div class="col-sm">
-      <button type="button" class="btn btn-success">Добавить идею</button>
+      <button type="button" class="btn btn-success">Добавить задачу</button>
     </div>
-    <div class="col-sm"><h2>Мои задачи</h2></div>
+    <div class="col-auto"><h2>Мои задачи в компании</h2></div>
     <div class="col-sm"></div>
   </div>
 </div>
@@ -85,64 +89,75 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td><div class="card">
-  <div class="card-body">
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">
-      Some quick example text to build on the card title
-    </p>
-     <a href="#!" class="card-link">Card link</a>
-  </div>
-</div></td>
-              <td><div class="card">
-  <div class="card-body">
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">
-      Some quick example text to build on the card title
-    </p>
-    <input type="range" class="custom-range" value="3" min="0" max="4" step="1" id="customRange3">
-  </div>
-</div>
-
-<div class="card">
-  <div class="card-body">
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">
-      Some quick example text to build on the card title
-    </p>
-    <input type="range" class="custom-range" value="3" min="0" max="4" step="1" id="customRange3">
-  </div>
-</div>
-
-</td>
-              <td><div class="card">
-  <div class="card-body">
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">
-      Some quick example text to build on the card title
-    </p>
-     <a href="#!" class="card-link">Card link</a>
-  </div>
-</div></td>
-              <td><div class="card">
-  <div class="card-body">
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">
-      Some quick example text to build on the card title
-    </p>
-     <a href="#!" class="card-link">Card link</a>
-  </div>
-</div></td>
-              <td><div class="card">
-  <div class="card-body">
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">
-      Some quick example text to build on the card title
-    </p>
-     <a href="#!" class="card-link">Card link</a>
-  </div>
-</div></td>
+             <tr>
+              <td class="w-25">
+                @foreach($tasks_status1 as $task1)
+                <div class="card mb-2">
+                  <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted">{{ $task1->name }}</h6>
+                    <p class="card-text">
+                      {{ $task1->created_at }}
+                   
+                    </p>
+                     <a href="#!" class="card-link">Card link</a>
+                  </div>
+                </div>
+                @endforeach
+              </td>
+             <td class="w-25">
+               @foreach($tasks_status2 as $task2)
+               <div class="card mb-2">
+                 <div class="card-body">
+                   <h6 class="card-subtitle mb-2 text-muted">{{ $task2->name }}</h6>
+                   <p class="card-text">
+                     {{ $task2->created_at }}
+                   </p>
+                    <a href="#!" class="card-link">Card link</a>
+                 </div>
+               </div>
+               @endforeach
+             </td>
+              <td class="w-25">
+               @foreach($tasks_status3 as $task3)
+               <div class="card mb-2">
+                 <div class="card-body">
+                   <h6 class="card-subtitle mb-2 text-muted">{{ $task3->name }}</h6>
+                   <p class="card-text">
+                     {{ $task3->created_at }}
+                   </p>
+                    <a href="#!" class="card-link">Card link</a>
+                 </div>
+               </div>
+               @endforeach
+             </td>
+              <td class="w-25">
+               @foreach($tasks_status4 as $task4)
+               <div class="card mb-2">
+                 <div class="card-body">
+                   <h6 class="card-subtitle mb-2 text-muted">{{ $task4->name }}</h6>
+                   <p class="card-text">
+                     {{ $task4->created_at }}
+                   </p>
+                    <a href="#!" class="card-link">Card link</a>
+                 </div>
+               </div>
+               @endforeach
+             </td>
+              <td class="w-25">
+               @foreach($tasks_status5 as $task5)
+               <div class="card mb-2">
+                 <div class="card-body">
+                   <h6 class="card-subtitle mb-2 text-muted">{{ $task5->name }}</h6>
+                   <p class="card-text">
+                     {{ $task5->created_at }}
+                   </p>
+                    <a href="#!" class="card-link">Card link</a>
+                 </div>
+               </div>
+               @endforeach
+                
+             </td> 
+            </tr>
                
            
           </tbody>

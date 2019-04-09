@@ -6,8 +6,12 @@
         <h1 class="h3">{{ $dot->name }}</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group mr-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Родительская точка</button>
-            <button type="button" class="btn btn-sm btn-outline-success">Редактировать точку</button>
+             <a href="{{ route('companyHome',['id'=>$company->id]) }}" class="btn btn-sm btn-outline-success" role="button" > {{$company->name}}</a>
+            @if ($dot->parent_id != 0)
+            <a href="{{ route('dotIndex',['id'=>$company->id, 'dotId'=>$dot->parent_id]) }}" class="btn btn-sm btn-outline-success" role="button" >Родительская точка</a>
+            @endif
+             <a href="" class="btn btn-sm btn-outline-success" role="button" > Редактировать точку</a>
+         
           </div>
           
         </div>
@@ -83,7 +87,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm">
-      <button type="button" class="btn btn-success">Добавить идею</button>
+      <button type="button" class="btn btn-success">Добавить задачу</button>
     </div>
     <div class="col-sm"><h2>Точечные идеи</h2></div>
     <div class="col-sm"></div>
