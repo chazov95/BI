@@ -109,69 +109,90 @@
           </thead>
           <tbody>
             <tr>
-              <td class="w-25">
+               <td class="w-25">
                 @foreach($tasks_status1 as $task1)
                 <div class="card mb-2">
                   <div class="card-body">
                     <h6 class="card-subtitle mb-2 text-muted">{{ $task1->name }}</h6>
-                    <p class="card-text">
-                      {{ $task1->created_at }}
-                    </p>
+                      <p class="card-text">
+                        <span class="font-weight-bold">Крайний срок:</span> {{ $task1->deadline }}
+                            <br>
+                        <span class="font-weight-bold">Постановщик:</span> {{ $user->find($task1->author_id)->real_name }} {{ $user->find($task1->author_id)->real_lastname }}
+                            <br>
+                        <span class="font-weight-bold">Ответственный:</span> {{ $user->find($task1->responsible_id)->real_name }} {{ $user->find($task1->responsible_id)->real_lastname }}
+                      </p>
                      <a href="#!" class="card-link">Card link</a>
                   </div>
                 </div>
                 @endforeach
               </td>
+              
              <td class="w-25">
                @foreach($tasks_status2 as $task2)
                <div class="card mb-2">
-                 <div class="card-body">
-                   <h6 class="card-subtitle mb-2 text-muted">{{ $task2->name }}</h6>
-                   <p class="card-text">
-                     {{ $task2->created_at }}
-                   </p>
-                    <a href="#!" class="card-link">Card link</a>
-                 </div>
-               </div>
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted">{{ $task2->name }}</h6>
+                      <p class="card-text">
+                        <span class="font-weight-bold">Крайний срок:</span> {{ $task2->deadline }}
+                            <br>
+                        <span class="font-weight-bold">Постановщик:</span> {{ $user->find($task2->author_id)->real_name }} {{ $user->find($task2->author_id)->real_lastname }}
+                            <br>
+                        <span class="font-weight-bold">Ответственный:</span> {{ $user->find($task2->responsible_id)->real_name }} {{ $user->find($task2->responsible_id)->real_lastname }}
+                      </p>
+                     <a href="#!" class="card-link">Card link</a>
+                  </div>
+                </div>
                @endforeach
              </td>
               <td class="w-25">
                @foreach($tasks_status3 as $task3)
-               <div class="card mb-2">
-                 <div class="card-body">
-                   <h6 class="card-subtitle mb-2 text-muted">{{ $task3->name }}</h6>
-                   <p class="card-text">
-                     {{ $task3->created_at }}
-                   </p>
-                    <a href="#!" class="card-link">Card link</a>
-                 </div>
-               </div>
+                <div class="card mb-2">
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted">{{ $task3->name }}</h6>
+                      <p class="card-text">
+                        <span class="font-weight-bold">Крайний срок:</span> {{ $task3->deadline }}
+                            <br>
+                        <span class="font-weight-bold">Постановщик:</span> {{ $user->find($task3->author_id)->real_name }} {{ $user->find($task3->author_id)->real_lastname }}
+                            <br>
+                        <span class="font-weight-bold">Ответственный:</span> {{ $user->find($task3->responsible_id)->real_name }} {{ $user->find($task3->responsible_id)->real_lastname }}
+                      </p>
+                     <a href="#!" class="card-link">Card link</a>
+                  </div>
+                </div>
                @endforeach
              </td>
               <td class="w-25">
                @foreach($tasks_status4 as $task4)
-               <div class="card mb-2">
-                 <div class="card-body">
-                   <h6 class="card-subtitle mb-2 text-muted">{{ $task4->name }}</h6>
-                   <p class="card-text">
-                     {{ $task4->created_at }}
-                   </p>
-                    <a href="#!" class="card-link">Card link</a>
-                 </div>
-               </div>
+                <div class="card mb-2">
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted">{{ $task4->name }}</h6>
+                      <p class="card-text">
+                        <span class="font-weight-bold">Крайний срок:</span> {{ $task4->deadline }}
+                            <br>
+                        <span class="font-weight-bold">Постановщик:</span> {{ $user->find($task4->author_id)->real_name }} {{ $user->find($task4->author_id)->real_lastname }}
+                            <br>
+                        <span class="font-weight-bold">Ответственный:</span> {{ $user->find($task4->responsible_id)->real_name }} {{ $user->find($task4->responsible_id)->real_lastname }}
+                      </p>
+                     <a href="#!" class="card-link">Card link</a>
+                  </div>
+                </div>
                @endforeach
              </td>
               <td class="w-25">
                @foreach($tasks_status5 as $task5)
                <div class="card mb-2">
-                 <div class="card-body">
-                   <h6 class="card-subtitle mb-2 text-muted">{{ $task5->name }}</h6>
-                   <p class="card-text">
-                     {{ $task5->created_at }}
-                   </p>
-                    <a href="#!" class="card-link">Card link</a>
-                 </div>
-               </div>
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted">{{ $task5->name }}</h6>
+                      <p class="card-text">
+                        <span class="font-weight-bold">Крайний срок:</span> {{ $task5->deadline }}
+                            <br>
+                        <span class="font-weight-bold">Постановщик:</span> {{ $user->find($task5->author_id)->real_name }} {{ $user->find($task5->author_id)->real_lastname }}
+                            <br>
+                        <span class="font-weight-bold">Ответственный:</span> {{ $user->find($task5->responsible_id)->real_name }} {{ $user->find($task5->responsible_id)->real_lastname }}
+                      </p>
+                     <a href="#!" class="card-link">Card link</a>
+                  </div>
+                </div>
                @endforeach
                 
              </td> 

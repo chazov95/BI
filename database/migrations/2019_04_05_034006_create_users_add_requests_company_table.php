@@ -14,7 +14,7 @@ class CreateUsersAddRequestsCompanyTable extends Migration
     public function up()
     {
         Schema::create('users_add_requests_company', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->integer('users_id');
             $table->integer('companies_id');
             $table->timestamps();

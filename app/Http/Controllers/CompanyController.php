@@ -90,6 +90,8 @@ public function __construct()
     public function dotIndex($id, $dotId)
 {
 
+    $userID = Auth::user()->id;
+    $user = User::find($userID);
     $dot=Dot::find($dotId);
     $company=Company::find($id);
     $child=$company->dots->where('parent_id','=', $dotId);
@@ -133,6 +135,7 @@ public function __construct()
         'tasks_status3'=>$tasks_status3,
         'tasks_status4'=>$tasks_status4,
         'tasks_status5'=>$tasks_status5,
+        'user'=>$user,
          ]);
     
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Company;
 use Auth;
 use App\User;
+use DB;
 class HomeController extends Controller
 {
     /**
@@ -33,7 +34,8 @@ class HomeController extends Controller
     $allC='';
     return view('home')->with(['companies'=> $companies,
             'my_c'=> $myC,
-            'allC' => $allC
+            'allC' => $allC,
+            'user' => $user,
         ]);
         
     }
@@ -71,9 +73,79 @@ else{
     }
 }*/
 
- public function idea($id)
+public function idea($id)
     {
          return view('idea');
+    }
+
+public function editProfile($id)
+    {
+        $userID = Auth::user()->id;
+        $user = User::find($userID);
+/*        $allCompanies = $user->companies();*/      
+/*  $tasks_status1=DB::table('dot_tasks')->where([
+  ['status', '=', '1'],
+  ['responsible_id', '=', $userID],
+  ['company_id', '=', $id],
+    ])*/
+  return view('editrofile')->with([
+            'user'=> $user,
+            
+        ]);
+    }
+public function allTasks($id)
+    {
+        $userID = Auth::user()->id;
+        $user = User::find($userID);
+        $allCompanies = $user->companies()->get();      
+ $tasks_status1=DB::table('dot_tasks')->where([
+  ['status', '=', '1'],
+  ['responsible_id', '=', $userID],
+    ])->orWhere([
+  ['status', '=', '1'],
+  ['author_id', '=', $userID],
+    ])->get();
+ $tasks_status2=DB::table('dot_tasks')->where([
+  ['status', '=', '2'],
+  ['responsible_id', '=', $userID],
+    ])->orWhere([
+  ['status', '=', '2'],
+  ['author_id', '=', $userID],
+    ])->get();
+  $tasks_status3=DB::table('dot_tasks')->where([
+  ['status', '=', '3'],
+  ['responsible_id', '=', $userID],
+    ])->orWhere([
+  ['status', '=', '3'],
+  ['author_id', '=', $userID],
+    ])->get();
+   $tasks_status4=DB::table('dot_tasks')->where([
+  ['status', '=', '4'],
+  ['responsible_id', '=', $userID],
+    ])->orWhere([
+  ['status', '=', '4'],
+  ['author_id', '=', $userID],
+    ])->get();
+    $tasks_status5=DB::table('dot_tasks')->where([
+  ['status', '=', '5'],
+  ['responsible_id', '=', $userID],
+    ])->orWhere([
+  ['status', '=', '5'],
+  ['author_id', '=', $userID],
+    ])->get();
+
+
+
+
+  return view('allTasks')->with([
+            'user'=> $user,
+            'allCompanies'=> $allCompanies,
+            'tasks_status1'=>$tasks_status1,
+            'tasks_status2'=>$tasks_status2,
+            'tasks_status3'=>$tasks_status3,
+            'tasks_status4'=>$tasks_status4,
+            'tasks_status5'=>$tasks_status5,
+        ]);
     }
 
 }

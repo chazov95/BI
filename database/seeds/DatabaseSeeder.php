@@ -43,8 +43,7 @@ DB::table('users')->insert([
 DB::table('companies')->insert([
             'admin_id' => '1',
             'name' => 'Buisness Intersections',
-            'description_full' => 'BI (buisness intersections) - это инструмент для системного анализа точек контакта между бизнесом и людьми ',
-            'description_short' => 'BI (buisness intersections) - это инструмент для системного анализа точек контакта между бизнесом и людьми ',
+            'description' => 'BI (buisness intersections) - это инструмент для системного анализа точек контакта между бизнесом и людьми ',
             'logo' => 'img/default/dot.png',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
@@ -55,8 +54,7 @@ DB::table('companies')->insert([
 DB::table('companies')->insert([
             'admin_id' => '2',
             'name' => 'Тестовая компания',
-            'description_full' => 'Тестовое полное описание для компании. Админом являтся пользователь с id=2',
-            'description_short' => 'Краткое описание может быть порой крайне кратким',
+            'description' => 'Тестовое полное описание для компании. Админом являтся пользователь с id=2',
             'logo' => 'img/default/dot.png',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
