@@ -85,42 +85,44 @@
               <th>В работе</th>
               <th>Сделано</th>
               <th>Факап</th>
-              <th>Отказались</th>
+              
             </tr>
           </thead>
           <tbody>
              <tr>
-              <td class="w-25">
+              <td class='w-25'>
+                @if (count($tasks_status1) > 0)
                 @foreach($tasks_status1 as $task1)
-                <div class="card  bg-light bg-primary mb-2 d-inline-block">
+                <div class="card  bg-light bg-primary mb-2 d-inline-block w-100">
                   <div class="card-header"><h6>{{ $task1->name }}</h6></div>
                   <div class="card-body">
-                    
                       <p class="card-text">
                         <span class="font-weight-bold">Крайний срок:</span> {{ $task1->deadline }}
-                            <br>
+                        <br>
                         <span class="font-weight-bold">Постановщик:</span> {{ $user->find($task1->author_id)->real_name }} {{ $user->find($task1->author_id)->real_lastname }}
-                            <br>
+                        <br>
                         <span class="font-weight-bold">Ответственный:</span> {{ $user->find($task1->responsible_id)->real_name }} {{ $user->find($task1->responsible_id)->real_lastname }}
                       </p>
-                    
-                   
-
                   </div>
-                    <div class="progress btn-sm" style="height: : 200px">
-  <div onClick="document.location='https://bootstrap-4.ru'" class="progress-bar bg-faded" role="progressbar" style="width: 20%"  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-  <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-  <div class="progress-bar bg-success" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-  <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-  <div class="progress-bar bg-secondary" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
+                    <div class="progress btn-sm" >
+                      <div onClick="document.location='https://bootstrap-4.ru'" class="progress-bar bg-faded" role="progressbar" style="width: 20%"  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-success" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-secondary" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
                 </div>
                 @endforeach
+                @else
+                <div class="card  bg-light bg-primary mb-2 d-inline-block w-100">
+                  <div class="card-header"><h6>Пусто</h6></div></div>
+                @endif
               </td>
               
-             <td class="w-25">
+             <td class='w-25'>
+              @if (count($tasks_status2) > 0)
                @foreach($tasks_status2 as $task2)
-               <div class="card  bg-light bg-primary mb-2 d-inline-block">
+              <div class="card  bg-light bg-primary mb-2 d-inline-block w-100">
                   <div class="card-header"><h6>{{ $task2->name }}</h6></div>
                   <div class="card-body">
                       <p class="card-text">
@@ -132,19 +134,25 @@
                       </p>
                      
                   </div>
-                    <div class="progress btn-sm" style="height: : 200px">
-                    <div onClick="document.location='https://bootstrap-4.ru'" class="progress-bar bg-faded" role="progressbar" style="width: 20%"  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-  <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-  <div class="progress-bar bg-success" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-  <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-  <div class="progress-bar bg-secondary" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-</div></div>
+                    <div class="progress btn-sm" >
+                      <div onClick="document.location='https://bootstrap-4.ru'" class="progress-bar bg-faded" role="progressbar" style="width: 20%"  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-success" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-secondary" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+              </div>
                
                @endforeach
+                @else
+                <div class="card  bg-light bg-primary mb-2 d-inline-block w-100">
+                  <div class="card-header"><h6>Пусто</h6></div></div>
+                @endif
              </td>
-              <td class="w-25">
+              <td class='w-25'>
+               @if (count($tasks_status3) > 0)
                @foreach($tasks_status3 as $task3)
-               <div class="card  bg-light bg-primary mb-2 d-inline-block">
+               <div class="card  bg-light bg-primary mb-2 d-inline-block w-100">
                   <div class="card-header"><h6>{{ $task3->name }}</h6></div>
                   <div class="card-body">
                       <p class="card-text">
@@ -156,19 +164,24 @@
                       </p>
                    
                   </div>
-                   <div class="progress btn-sm" style="height: : 200px">
+                   <div class="progress btn-sm">
                     <div onClick="document.location='https://bootstrap-4.ru'" class="progress-bar bg-faded" role="progressbar" style="width: 20%"  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-  <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-  <div class="progress-bar bg-success" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-  <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-  <div class="progress-bar bg-secondary" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-</div></div>
-                
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+              </div>
                @endforeach
+              @else
+                <div class="card  bg-light bg-primary mb-2 d-inline-block w-100">
+                  <div class="card-header"><h6>Пусто</h6></div></div>
+                @endif
              </td>
-              <td class="w-25">
+              <td class='w-25'>
+              @if (count($tasks_status4) > 0)
                @foreach($tasks_status4 as $task4)
-                <div class="card  bg-light bg-primary mb-2 d-inline-block">
+                <div class="card  bg-light bg-primary mb-2 d-inline-block w-100">
                   <div class="card-header"><h6>{{ $task4->name }}</h6></div>
                   <div class="card-body">
                       <p class="card-text">
@@ -188,10 +201,24 @@
 </div></div>
                 
                @endforeach
+                @else
+                <div class="card  bg-light bg-primary mb-2 d-inline-block w-100">
+                  <div class="card-header"><h6>Пусто</h6></div></div>
+                @endif
              </td>
-              <td class="w-25">
+            
+            </tr>
+            <tr>
+              <td colspan="4" class="w-100 text-center"><h4>Отложили</h4></td>
+              
+            </tr>
+               
+               <tr>
+             
+               <td colspan="4" class="w-100 text-center">
+              @if (count($tasks_status5) > 0)
                @foreach($tasks_status5 as $task5)
-              <div class="card  bg-light bg-primary mb-2 d-inline-block">
+              <div class="card  bg-light bg-primary mb-2 d-inline-block w-25">
                   <div class="card-header"><h6>{{ $task5->name }}</h6></div>
                   <div class="card-body">
                       <p class="card-text">
@@ -202,18 +229,24 @@
                         <span class="font-weight-bold">Ответственный:</span> {{ $user->find($task5->responsible_id)->real_name }} {{ $user->find($task5->responsible_id)->real_lastname }}
                       </p>
                      
-                  </div> <div class="progress btn-sm" style="height: : 200px">
+                  </div> <div class="progress btn-sm">
                     <div onClick="document.location='https://bootstrap-4.ru'" class="progress-bar bg-faded" role="progressbar" style="width: 20%"  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-  <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-  <div class="progress-bar bg-success" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-  <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-  <div class="progress-bar bg-secondary" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-</div></div>
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 20%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
                 
                @endforeach
+                 
+                @else
+                <div class="card  bg-light bg-primary mb-2 d-inline-block w-25 float-left">
+                  <div class="card-header"><h6>Пусто</h6></div></div>
+                @endif
              </td> 
+              
             </tr>
-               
            
           </tbody>
         </table>

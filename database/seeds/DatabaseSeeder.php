@@ -207,6 +207,43 @@ DB::table('dot_tasks')->insert([
             'status'=>'3',
             'author_id'=>'1',
             ]);
+//тестовые задачи для тестовой компании
+DB::table('dot_tasks')->insert([
+            'name' => 'Тестовая задача1',
+            'dot_id' => '5',
+            'responsible_id' => '2',
+            'company_id' => '2',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            'description' => 'Описание для тестовой задачи1',
+            'deadline'=>'2019-09-1',
+            'status'=>'4',
+            'author_id'=>'1',
+            ]);
+DB::table('dot_tasks')->insert([
+            'name' => 'Тестовая задача2',
+            'dot_id' => '5',
+            'responsible_id' => '1',
+            'company_id' => '2',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            'description' => 'Описание для тестовой задачи2',
+            'deadline'=>'2019-09-1',
+            'status'=>'2',
+            'author_id'=>'2',
+            ]);
+DB::table('dot_tasks')->insert([
+            'name' => 'Тестовая задача3',
+            'dot_id' => '5',
+            'responsible_id' => '2',
+            'company_id' => '2',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            'description' => 'Описание для тестовой задачи4',
+            'deadline'=>'2019-09-1',
+            'status'=>'5',
+            'author_id'=>'2',
+            ]);
 
 
 

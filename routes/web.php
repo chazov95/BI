@@ -16,7 +16,9 @@ Route::get('/registerCompany', 'IndexController@registerCompany')->name('registe
 Route::get('/company/{id}/edit', 'IndexController@editCompany')->name('editCompany');
 Route::get('/company/{id}/dot/{dotId}', 'CompanyController@dotIndex')->name('dotIndex');
 Route::get('/profile/{id}/edit/', 'HomeController@editProfile')->name('editProfile');
+Route::get('/profile/{id}', 'HomeController@profile')->name('profile');
 Route::get('/profile/{id}/alltasks/', 'HomeController@allTasks')->name('allTasks');
+Route::get('/about', 'HomeController@about')->name('about');
 
 
 Auth::routes();

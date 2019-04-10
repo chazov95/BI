@@ -42,11 +42,14 @@ class HomeController extends Controller
 
     public function all()
     {
+      $userID = Auth::user()->id;
+    $user = User::find($userID);
         $myC='';//деактивирует кнопку компании
         $allC='disabled';
        $companies = Company::paginate(2);
          return view('home', compact($companies))->with([
             'companies'=> $companies,
+            'user'=> $user,
             'my_c'=> $myC,
             'allC' => $allC
         ]);
@@ -82,15 +85,16 @@ public function editProfile($id)
     {
         $userID = Auth::user()->id;
         $user = User::find($userID);
-/*        $allCompanies = $user->companies();*/      
-/*  $tasks_status1=DB::table('dot_tasks')->where([
-  ['status', '=', '1'],
-  ['responsible_id', '=', $userID],
-  ['company_id', '=', $id],
-    ])*/
-  return view('editrofile')->with([
-            'user'=> $user,
-            
+  return view('editprofile')->with([
+            'user'=> $user, 
+        ]);
+    }
+public function profile($id)
+    {
+        $userID = Auth::user()->id;
+        $user = User::find($userID);
+  return view('profile')->with([
+            'user'=> $user, 
         ]);
     }
 public function allTasks($id)
@@ -147,5 +151,14 @@ public function allTasks($id)
             'tasks_status5'=>$tasks_status5,
         ]);
     }
+
+      public function about()
+ {
+        $userID = Auth::user()->id;
+        $user = User::find($userID);
+  return view('about')->with([
+            'user'=> $user,
+          ]);
+ }
 
 }
