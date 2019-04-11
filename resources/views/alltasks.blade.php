@@ -41,10 +41,10 @@
           </thead>
           <tbody>
              <tr>
-              <td class='w-25'>
+              <td class='w-25' id="status1">
                 @if (count($tasks_status1) > 0)
                 @foreach($tasks_status1 as $task1)
-                <div class="card  bg-light bg-primary mb-2 d-inline-block w-100" id="task{{ $task1->id }}">
+                <div class="card  bg-light mb-2 d-inline-block w-100" id="task{{ $task1->id }}">
                   <div class="toast-header"><strong class="mr-auto">{{ $task1->name }}</strong>
                     <a href=""><small class="text-secondary"> (ред.)<!--  &#9998; --> </small> </a>
                     <script async="" src="{{ asset('js/main.js') }}"></script>
@@ -63,13 +63,12 @@
                         <span class="font-weight-bold">Ответственный:</span> {{ $user->find($task1->responsible_id)->real_name }} {{ $user->find($task1->responsible_id)->real_lastname }}
                       </p>
                   </div>
-
-                  <div class="btn-group w-100">
-            <button type="button" onClick="taskStatus('task{{ $task1->id }}')" class="btn btn-sm btn-outline-primary disabled">  </button>
-            <button type="button" class="btn btn-sm btn-outline-warning">  </button>
-            <button type="button" class="btn btn-sm btn-outline-success">  </button>
-            <button type="button" class="btn btn-sm btn-outline-danger" role="button">  </button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">  </button>
+           <div class="btn-group w-100">
+            <button onClick="goStatus('status1', 'task{{ $task1->id }}', 'status1task{{ $task1->id }}')" class="btn btn-sm btn-primary" role="button"  id='status1task{{ $task1->id }}' type="button"  disabled> </button>
+            <button onClick="goStatus('status2', 'task{{ $task1->id }}', 'status2task{{ $task1->id }}')" type="button" role="button" id='status2task{{ $task1->id }}'  class="btn btn-sm btn-warning">  </button>
+            <button onClick="goStatus('status3', 'task{{ $task1->id }}', 'status3task{{ $task1->id }}')" type="button" id='status3task{{ $task1->id }}' class="btn btn-sm btn-success">  </button>
+            <button onClick="goStatus('status4', 'task{{ $task1->id }}', 'status4task{{ $task1->id }}')" type="button" id='status4task{{ $task1->id }}' class="btn btn-sm btn-danger" role="button">  </button>
+            <button onClick="goStatus('status5', 'task{{ $task1->id }}', 'status5task{{ $task1->id }}')" type="button" id='status5task{{ $task1->id }}' class="btn btn-sm btn-secondary">  </button>
           </div>                    
                 @endforeach
                 @else
@@ -78,7 +77,7 @@
                 @endif
               </td>
               
-             <td class='w-25'>
+             <td class='w-25' id="status2">
               @if (count($tasks_status2) > 0)
                @foreach($tasks_status2 as $task2)
               <div class="card  bg-light bg-primary mb-2 d-inline-block w-100">
@@ -110,7 +109,7 @@
                   <div class="card-header"><h6>Пусто</h6></div></div>
                 @endif
              </td>
-              <td class='w-25'>
+              <td class='w-25' id="status3">
                @if (count($tasks_status3) > 0)
                @foreach($tasks_status3 as $task3)
                <div class="card  bg-light bg-primary mb-2 d-inline-block w-100">
@@ -141,7 +140,7 @@
                   <div class="card-header"><h6>Пусто</h6></div></div>
                 @endif
              </td>
-              <td class='w-25'>
+              <td class='w-25'id="status4">
               @if (count($tasks_status4) > 0)
                @foreach($tasks_status4 as $task4)
                 <div class="card  bg-light bg-primary mb-2 d-inline-block w-100">
@@ -180,7 +179,7 @@
                
                <tr>
              
-               <td colspan="4" class="w-100 text-center">
+               <td colspan="4" class="w-100 text-center" id="status5">
               @if (count($tasks_status5) > 0)
                @foreach($tasks_status5 as $task5)
               <div class="card  bg-light bg-primary mb-2 d-inline-block w-25">

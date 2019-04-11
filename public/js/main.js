@@ -1,9 +1,53 @@
-function delTask(id){
-if (confirm("Вы уверены, то хотите удалить задачу?")) {
-  $('#'+id).attr('class', 'card  bg-light bg-primary mb-2 d-none w-100');
-} else {
+function delTask(id)
+{
+    if (confirm("Вы уверены, то хотите удалить задачу?")) 
+    {
+        $('#'+id).attr('class', 'card  bg-light bg-primary mb-2 d-none w-100');
+    } 
+    else
+    {
+    }
 }
 
+function goStatus(statusid, taskid, statusidtask)
+{
+    if (statusid == 'status1') 
+    {
+        /**/
+        $fromStatusId=$('#'+statusidtask).parent().parent().parent().attr('id');
+        $('#'+$fromStatusId+taskid).removeAttr('disabled');
+        $('#'+statusidtask).attr('disabled', '');
+        $('#'+ taskid).detach().prependTo('#status1');
+    } 
+    else if (statusid == 'status2') 
+    {
+        $fromStatusId=$('#'+statusidtask).parent().parent().parent().attr('id');
+        $('#'+$fromStatusId+taskid).removeAttr('disabled');
+       $('#'+statusidtask).attr('disabled', '');
+       $('#'+ taskid).detach().prependTo('#status2');
+       
+    }
+    else if (statusid == 'status3') 
+    {
+        $fromStatusId=$('#'+statusidtask).parent().parent().parent().attr('id');
+        $('#'+$fromStatusId+taskid).removeAttr('disabled');
+        $('#'+statusidtask).attr('disabled', '');
+        $('#'+ taskid).detach().prependTo('#status3');
+    }
+    else if (statusid == 'status4') 
+    {
+        $fromStatusId=$('#'+statusidtask).parent().parent().parent().attr('id');
+        $('#'+$fromStatusId+taskid).removeAttr('disabled');
+        $('#'+statusidtask).attr('disabled', '');
+        $('#'+ taskid).detach().prependTo('#status4');
+    }
+    else if (statusid == 'status5') 
+    {
+        $fromStatusId=$('#'+statusidtask).parent().parent().parent().attr('id');
+        $('#'+$fromStatusId+taskid).removeAttr('disabled');
+        $('#'+statusidtask).attr('disabled', '');
+        $('#'+ taskid).detach().prependTo('#status5');
+    }
 }
 
 /*// редактирует задачу
