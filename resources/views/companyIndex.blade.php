@@ -11,6 +11,7 @@
             <button type="button" class="btn btn-sm btn-outline-success">Сотрудники</button>
             <button type="button" class="btn btn-sm btn-outline-success">Графики</button>
             <button type="button" class="btn btn-sm btn-outline-success">Идеи клиентов</button>
+            <a href="" class="btn btn-sm btn-outline-secondary disabled" role="button"> Цепочки точек</a>
           </div>
         </div>
          <div class="btn-toolbar mb-2 mb-md-0">
@@ -43,18 +44,23 @@
 <div class="album py-3">
   <div class="containe">
     <div class="row">
-      
+ @if (count($mainDots) > 0)      
 @foreach($mainDots as $dot)  
 <div class="col-md-4">
-  <div class="card mb-4 shadow-sm">
-    <div class="card-body"><p class="text-center">
-      <img src="https://static.tildacdn.com/tild3532-6130-4437-b966-653766626265/1.jpg" class="rounded-circle" alt="" height="40" width="40" align="cover-container"><br>
-      <a href="{{ route('dotIndex',['id'=>$company->id, 'dotId'=>$dot->id]) }}"><b>{{ $dot->name }}</b></a></p>
+  <div class="card mb-4 shadow-sm h-100">
+    <h6 class="card-header" ><img src="https://static.tildacdn.com/tild3532-6130-4437-b966-653766626265/1.jpg" class="rounded-circle" alt="" height="40" width="40" align="cover-container">
+      <a href="{{ route('dotIndex',['id'=>$company->id, 'dotId'=>$dot->id]) }}">{{ $dot->name }}</a></h6>
+    <div class="card-body">
       <p class="card-text">{{ $dot->description_short }}</p>
     </div>
   </div>
 </div>
 @endforeach
+@else
+          <div class="alert alert-info" role="alert">
+    У этой компании нет ни одной точки контакта? Не может быть! <strong>Добавьте первую!</strong> 
+</div>
+@endif
 
 
     </div>

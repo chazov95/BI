@@ -25,11 +25,11 @@
     </div>
     <div class="col-sm-4">
       <div class="row">
-        <div class="offset">
+        <div class="offset w-100">
       <!-- карточка 1 -->
-          <div class="card">
+          <div class="card ">
             <div class="card-header">
-    Описание точки
+    <h6>Описание точки</h6>
             </div>
             <div class="card-body">
     
@@ -69,6 +69,7 @@
 </div>
 
   <div class="row">
+     @if (count($child) > 0)      
     @foreach($child as $dot)
     <div class="col-md-3">
       <div class="card mb-3 shadow-sm">
@@ -80,6 +81,13 @@
       </div>
     </div>
     @endforeach
+    @else
+     <div class="col-md-12">
+          <div class="alert alert-info text-center" role="alert">
+    У этой точки нет дочерних точек, но это можно исправить :)
+</div>
+</div>
+@endif
 </div>
 
 <br><br>
