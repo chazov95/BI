@@ -20,9 +20,11 @@ class CreateDotTasksTable extends Migration
             $table->integer('responsible_id')->unsigned(); //ответственный
             $table->foreign('responsible_id')->references('id')->on('users');
             $table->integer('company_id')->unsigned();
+           
            /* $table->foreign('company_id')->references('id')->on('companies');*/
             $table->string('name', 200);
-            $table->text('description', 4000);
+            $table->text('problem', 4000); //в чем суть проблемы
+            $table->text('description', 4000); //как исправить
             $table->date('deadline');
             $table->string('status')->default('1');//на каком этапе находится
             $table->integer('author_id')->unsigned();//кто создал 

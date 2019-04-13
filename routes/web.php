@@ -20,6 +20,11 @@ Route::get('/profile/{id}', 'HomeController@profile')->name('profile');
 Route::get('/profile/{id}/alltasks/', 'HomeController@allTasks')->name('allTasks');
 Route::get('/about', 'HomeController@about')->name('about');
 
+//роуты для аякс запросов
+Route::POST('/taskContent','AjaxController@taskContent');
+Route::POST('/edit/Task','AjaxController@editTask');
+
+
 
 Auth::routes();
 

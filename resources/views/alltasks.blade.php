@@ -36,7 +36,6 @@
               <th class="bg-warning text-white">В работе</th>
               <th class="bg-success text-white">Сделано</th>
               <th class="bg-danger text-white">Факап</th>
-              
             </tr>
           </thead>
           <tbody>
@@ -45,8 +44,8 @@
                 @if (count($tasks_status1) > 0)
                 @foreach($tasks_status1 as $task1)
                 <div class="card  bg-light mb-2 d-inline-block w-100" id="task{{ $task1->id }}">
-                  <div class="toast-header"><strong class="mr-auto">{{ $task1->name }}</strong>
-                    <a href=""><small class="text-secondary"> (ред.)<!--  &#9998; --> </small> </a>
+                  <div class="toast-header"><strong class="mr-auto"><a href="#" onclick = "showTask({{ $task1->id }})" data-toggle="modal" data-target="#mainModal">{{ $task1->name }}</a></strong>
+                    <a href="#" onclick = "editTask({{ $task1->id }})" data-toggle="modal" data-target="#mainModal"><small class="text-secondary"> (ред.)<!--  &#9998; --> </small> </a>
                     <script async="" src="{{ asset('js/main.js') }}"></script>
                     <button type="button" class="ml-2 mb-1 close" onClick="delTask('task{{ $task1->id }}')" data-dismiss="toast" aria-label="Close">
                       <span aria-hidden="true" class="f">&times; </span>
@@ -64,11 +63,11 @@
                       </p>
                   </div>
            <div class="btn-group w-100">
-            <button onClick="goStatus('status1', 'task{{ $task1->id }}', 'status1task{{ $task1->id }}')" class="btn btn-sm btn-primary" role="button"  id='status1task{{ $task1->id }}' type="button"  disabled> </button>
-            <button onClick="goStatus('status2', 'task{{ $task1->id }}', 'status2task{{ $task1->id }}')" type="button" role="button" id='status2task{{ $task1->id }}'  class="btn btn-sm btn-warning">  </button>
-            <button onClick="goStatus('status3', 'task{{ $task1->id }}', 'status3task{{ $task1->id }}')" type="button" id='status3task{{ $task1->id }}' class="btn btn-sm btn-success">  </button>
-            <button onClick="goStatus('status4', 'task{{ $task1->id }}', 'status4task{{ $task1->id }}')" type="button" id='status4task{{ $task1->id }}' class="btn btn-sm btn-danger" role="button">  </button>
-            <button onClick="goStatus('status5', 'task{{ $task1->id }}', 'status5task{{ $task1->id }}')" type="button" id='status5task{{ $task1->id }}' class="btn btn-sm btn-secondary">  </button>
+            <button onClick="goStatus('status1', 'task{{ $task1->id }}', 'status1task{{ $task1->id }}')" class="btn btn-sm btn-primary" role="button"  id='status1task{{ $task1->id }}' type="button"  disabled></button>
+            <button onClick="goStatus('status2', 'task{{ $task1->id }}', 'status2task{{ $task1->id }}')" type="button" role="button" id='status2task{{ $task1->id }}'  class="btn btn-sm btn-warning"></button>
+            <button onClick="goStatus('status3', 'task{{ $task1->id }}', 'status3task{{ $task1->id }}')" type="button" id='status3task{{ $task1->id }}' class="btn btn-sm btn-success"></button>
+            <button onClick="goStatus('status4', 'task{{ $task1->id }}', 'status4task{{ $task1->id }}')" type="button" id='status4task{{ $task1->id }}' class="btn btn-sm btn-danger" role="button"></button>
+            <button onClick="goStatus('status5', 'task{{ $task1->id }}', 'status5task{{ $task1->id }}')" type="button" id='status5task{{ $task1->id }}' class="btn btn-sm btn-secondary"></button>
           </div>                    
                 @endforeach
                 @else
@@ -213,11 +212,8 @@
              </td> 
               
             </tr>
-           
           </tbody>
         </table>
       </div>
-
-    
     </main>
     @endsection

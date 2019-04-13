@@ -1,3 +1,6 @@
+
+
+
 function delTask(id)
 {
     if (confirm("Вы уверены, то хотите удалить задачу?")) 
@@ -11,20 +14,25 @@ function delTask(id)
 
 function goStatus(statusid, taskid, statusidtask)
 {
+    
     if (statusid == 'status1') 
     {
         /**/
         $fromStatusId=$('#'+statusidtask).parent().parent().parent().attr('id');
         $('#'+$fromStatusId+taskid).removeAttr('disabled');
         $('#'+statusidtask).attr('disabled', '');
-        $('#'+ taskid).detach().prependTo('#status1');
+        $('#'+ taskid).hide(1000, function(){ $('#'+ taskid).detach().prependTo('#status1')});
+        $('#'+ taskid).show(1000);
     } 
     else if (statusid == 'status2') 
     {
-        $fromStatusId=$('#'+statusidtask).parent().parent().parent().attr('id');
-        $('#'+$fromStatusId+taskid).removeAttr('disabled');
+        
+      
+       $fromStatusId=$('#'+statusidtask).parent().parent().parent().attr('id');
+       $('#'+$fromStatusId+taskid).removeAttr('disabled');
        $('#'+statusidtask).attr('disabled', '');
-       $('#'+ taskid).detach().prependTo('#status2');
+       $('#'+ taskid).hide(1000, function(){ $('#'+ taskid).detach().prependTo('#status2')});
+       $('#'+ taskid).show(1000);
        
     }
     else if (statusid == 'status3') 
@@ -32,191 +40,124 @@ function goStatus(statusid, taskid, statusidtask)
         $fromStatusId=$('#'+statusidtask).parent().parent().parent().attr('id');
         $('#'+$fromStatusId+taskid).removeAttr('disabled');
         $('#'+statusidtask).attr('disabled', '');
-        $('#'+ taskid).detach().prependTo('#status3');
+        $('#'+ taskid).hide(1000, function(){ $('#'+ taskid).detach().prependTo('#status3')});
+        $('#'+ taskid).show(1000);
     }
     else if (statusid == 'status4') 
     {
         $fromStatusId=$('#'+statusidtask).parent().parent().parent().attr('id');
         $('#'+$fromStatusId+taskid).removeAttr('disabled');
         $('#'+statusidtask).attr('disabled', '');
-        $('#'+ taskid).detach().prependTo('#status4');
+        $('#'+ taskid).hide(1000, function(){ $('#'+ taskid).detach().prependTo('#status4')});
+        $('#'+ taskid).show(1000);
     }
     else if (statusid == 'status5') 
     {
         $fromStatusId=$('#'+statusidtask).parent().parent().parent().attr('id');
         $('#'+$fromStatusId+taskid).removeAttr('disabled');
         $('#'+statusidtask).attr('disabled', '');
-        $('#'+ taskid).detach().prependTo('#status5');
+        $('#'+ taskid).hide(1000, function(){ $('#'+ taskid).detach().prependTo('#status5')});
+        $('#'+ taskid).show(1000);
     }
 }
 
-/*// редактирует задачу
+
+
 function editTask(id){
-    $("#editTaskModalTitle").html("Редактирование");
-    $("#maodalMainButton").html("Редактировать задачу");
-    $("#maodalMainButton").attr("onClick", "addEdition()");
- 
-    var oldDate  = $('#dateTask'+id).attr("name");
-    var oldTitle = $('#titleTask'+id).html();
-    var oldBody = $('#bodyTask'+id).html();
-    $("#headerTask").attr("value", oldTitle);
-    $("#FullTasktext").html(oldBody);
-    $("#dateNewTask").attr("value", oldDate);
-    $("#formGroup").append("<input type='hidden' value='"+ id + "' id='IDTaskEditModal'>")
-}
-
-// Отправляем отредактированную задачу
-function addEdition(){
-    var NewEditTaskTitle = $('#headerTask').val();
-    var NewEditTaskBody = $('#FullTasktext').val();
-    var NewEditTaskDate = $('#dateNewTask').val();
-    var NewEditTaskID = $('#IDTaskEditModal').val();
-
-     $.ajax({
-        type: "POST",
-        url: "db.php",
-        data: {NewEditTaskTitlePost:NewEditTaskTitle, NewEditTaskBodyPost:NewEditTaskBody, NewEditTaskDatePost:NewEditTaskDate, NewEditTaskIDPost:NewEditTaskID, tokenEditTaskPost:'sfcvsdf353312cvDD'}
-    }).done(function( result )
-        {
-            $("#modalAddTaskBody").html( 'Задача отредактирована<br>'+result );
-        });
-
-}
-
-function startinstall(){
-    var name = 'start';
-    var dbhost = $('#dbhost').val();
-    var dbname = $('#dbname').val();
-    var dbuser = $('#dbuser').val();
-    var dbpassword = $('#dbpassword').val();
-    $.ajax({
-        type: "POST",
-        url: "db.php",
-        data: {start1:name, posthost:dbhost, postdbname:dbname, postdbuser:dbuser, postdbpass:dbpassword}
-    }).done(function( result )
-        {
-            $("#msg").html( '<p class="list-group-item list-group-item-action list-group-item-warning">Лог работы скрипта установки:</p><br>'+result );
-        });
-}
-
-function adminregistred(){
-    var login = $('#loginadm').val();
-    var password = $('#passadm').val();
-    $.ajax({
-        type: "POST",
-        url: "db.php",
-        data: {logina:login, passa:password}
-    }).done(function( result )
-        {
-        	/*$('#regadm').empty();
-            $("#msg2").html( '<br>'+result );
-        });
-}
-
-function newTask(){
-    var dateNewTask = $('#dateNewTask').val();
-    var FullTasktext = $('#FullTasktext').val();
-    var headerTask = $('#headerTask').val();
-    $.ajax({
-        type: "POST",
-        url: "tasksmanager.php",
-        data: {dateNewTaskPost:dateNewTask, FullTasktextPost:FullTasktext, headerTaskPost:headerTask}
-    }).done(function( result )
-        {
-            $("#modalAddTaskBody").html( 'Задача добавлена' + result );
-            
-        });
-}
-
-
-function newUser(){
-    var newLogin = $('#loginReg').val();
-    var newPass = $('#passReg').val();
-    var newEmail = $('#emailReg').val();
-    var newAnsw = $('#answReg').val();
-
-if (newAnsw == 'Пушкин') {
-
-$.ajax({
-        type: "POST",
-        url: "db.php",
-        data: {newLoginPost:newLogin, newPassPost:newPass, newEmailPost:newEmail}
-    }).done(function( result )
-        {
-            $("#mainContain").html(result + '<br><a href="index.php">На страницу авторизации</a>');
-            
-        });
-} else {
-
-$("#mainContain").html('Вы неправильно ответили на контрольный вопрос<br>');
-}
+           $.ajax({
+                    url : "/taskContent",
+                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                    data: {
+                    "id": id
+                    },
+                    datatype: 'JSON',
+                    type: "POST",
+                    success: function( data ) {
+                        data= JSON.parse(data);
+    $('#mainModalLabel').html( 
+          
+          '<div class="form-group">'+
+            '<label for="taskEditedName"><b>Заголовок</b></label>'+
+            '<input type="text" class="form-control w-100" id="taskEditedName" value="'+data.name+'" rows="5" >'+
+            '</div>'
+            );
+    $('#mainModalBody').html( 
+    '<div class="form-group">'+
+        '<label for="taskEditedProblem"><b>В чем проблема</b></label>'+
+        '<textarea type="text" class="form-control" id="taskEditedProblem" rows="5">'
+        + data.problem +
+      '</textarea></div>'+
+      '<div class="form-group">'+
+        '<label for="taskEditedDescription"><b>Как исправить</b></label>'+
+        '<textarea type="text" class="form-control" id="taskEditedDescription" rows="5">'
+        +data.taskDescription+
+      '</textarea></div>'+
+      '<div class="form-group">'+
+        '<label for="taskEditedDeadline"><b>Крайний срок</b></label>'+
+        '<input type="date" class="form-control w-50" id="taskEditedDeadline" value="'+data.deadline+'" rows="5" >'+
+        '</div>'
+     );
+    $('#mainModalFooter').html( data.submit_button );
     
+                    }
+                    });
 }
 
+/**
+ * Функция принимает id задачи и возвращает 
+ * информацию о задаче, вставляя ее в модальное окно
+ * @param  int id
+ * @return string
+ */
+function showTask(id){
+      $.ajax({
+                    url : "/taskContent",
+                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                    data: {
+                    "id": id
+                    },
+                    datatype: 'JSON',
+                    type: "POST",
+                    success: function( data ) {
+                        data= JSON.parse(data);
+                        $('#mainModalBody').html( '<strong>Что не так:</strong><br>'
+                            + data.problem + 
+                            '<br><strong>Как исправить:</strong><br>'
+                            + data.taskDescription +
+                            '<br><br><p> <b>Крайник срок:</b> '
+                            + data.deadline +
+                            '<br> <b>Дата создания:</b> '
+                            + data.created_at +
+                            '</p>');
+                        $('#mainModalFooter').html( data.edit_button );
+                        $('#mainModalLabel').html( data.name );
+                    }
+                    });
+}
 
-$(function() {
-
-//перебрасвает с главной на страницу регистрации
-$('#regPage').on('click', function() { window.location = '/registration.php'; });
-
-
-//закрывает окно постановки задачи
-$('#modal-close').click(function() {
-       location.reload();
-    });
-
-//закрывает задачу
-$("button[id^='task-close']").click(function(){
-         
-       $(this).parent().parent().hide(100);
-       var delTasks = $(this).val();
-       console.log('Закрыта задача ', delTasks);
-
- $.ajax({
-        type: "POST",
-        url: "tasksmanager.php",
-        data: {delTasksPost:delTasks}
-    }).done(function( result )
-        {
-           console.log(result );
-            
-        });
-  });   
-
-//меняет статус задачи
-$('.Myform-check-input').click(function(){
-    if ($(this).is(':checked')){
-       $(this).parent().parent().attr('class','table-success');
-
-var chStatTasksID = $(this).val();
-var taskStat = true;
-$.ajax({
-        type: "POST",
-        url: "tasksmanager.php",
-        data: {chStatTasksIDPost:chStatTasksID, taskStatPost:taskStat}
-    }).done(function( result )
-        {
-           console.log(result );
-            
-        });
-
-   }else {
-       $(this).parent().parent().attr('class','table-info');
-
-
-var chStatTasksID = $(this).val();
-var taskStat = false;
-$.ajax({
-        type: "POST",
-        url: "tasksmanager.php",
-        data: {chStatTasksIDPost:chStatTasksID, taskStatPost:taskStat}
-    }).done(function( result )
-        {
-           console.log(result );
-            
-        });
-
-   }
-  });     
-
-});*/
+/**
+ * Функция принимает id задачи, собирает информацию из полей и отправляет в обработчик
+ */
+function submitChanges(taskid) {
+  
+    var name = $('#taskEditedName').val();
+    var problem = $('#taskEditedProblem').val();
+    var description = $('#taskEditedDescription').val();
+    var deadline = $('#taskEditedDeadline').val();
+  $.ajax({
+                    url : "/edit/Task",
+                    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                    data: {
+                    "id": taskid,
+                    "name": name,
+                    "problem": problem,
+                    "description": description,
+                    "deadline": deadline
+                    },
+                    datatype: 'JSON',
+                    type: "POST",
+                    success: function() {
+$('#mainModalBody').html( 'Задача обновлена');
+                    }
+});
+}
