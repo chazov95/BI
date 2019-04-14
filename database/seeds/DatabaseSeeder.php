@@ -43,8 +43,7 @@ DB::table('users')->insert([
 DB::table('companies')->insert([
             'admin_id' => '1',
             'name' => 'Buisness Intersections',
-            'description_full' => 'BI (buisness intersections) - это инструмент для системного анализа точек контакта между бизнесом и людьми ',
-            'description_short' => 'BI (buisness intersections) - это инструмент для системного анализа точек контакта между бизнесом и людьми ',
+            'description' => 'BI (buisness intersections) - это инструмент для системного анализа точек контакта между бизнесом и людьми ',
             'logo' => 'img/default/dot.png',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
@@ -55,8 +54,7 @@ DB::table('companies')->insert([
 DB::table('companies')->insert([
             'admin_id' => '2',
             'name' => 'Тестовая компания',
-            'description_full' => 'Тестовое полное описание для компании. Админом являтся пользователь с id=2',
-            'description_short' => 'Краткое описание может быть порой крайне кратким',
+            'description' => 'Тестовое полное описание для компании. Админом являтся пользователь с id=2',
             'logo' => 'img/default/dot.png',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
@@ -181,34 +179,77 @@ DB::table('dot_tasks')->insert([
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
             'description' => 'Когда нажимаешь на Идея у любого пользователя должна быть возможность оставить идею, заполнив поля Проблема, Состояние, Решение',
+             'problem' => 'Описание проблем у всех точек пока будет одинаковое -тестовое 0',
             'deadline'=>'2019-09-1',
             'status'=>'3',
-            'autor_id'=>'1'
+            'author_id'=>'1',
             ]);
-/*DB::table('dot_tasks')->insert([
-            'name' => 'Сделать форму подачи идей',
+DB::table('dot_tasks')->insert([
+            'name' => 'Сделать форму добавления точек',
             'dot_id' => '5',
             'responsible_id' => '1',
             'company_id' => '1',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
-            'description' => 'Когда нажимаешь на Идея у любого пользователя должна быть возможность оставить идею, заполнив поля Проблема, Состояние, Решение',
+            'description' => 'На странице каждой точки нужна такая форма',
+            'problem' => 'Описание проблем у всех точек пока будет одинаковое -тестовое 1',
             'deadline'=>'2019-06-23',
             'status'=>'1',
-            'autor_id'=>'2'
+            'author_id'=>'2',
             ]);
 DB::table('dot_tasks')->insert([
-            'name' => 'Сделать форму подачи идей',
+            'name' => 'Форма редактирования профилей нужна',
             'dot_id' => '5',
             'responsible_id' => '2',
             'company_id' => '1',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
-            'description' => 'Когда нажимаешь на Идея у любого пользователя должна быть возможность оставить идею, заполнив поля Проблема, Состояние, Решение',
+            'description' => 'Я думаю, это понятная функция, может она, кстати уже есть в ларавеле',
+            'problem' => 'Описание проблем у всех точек пока будет одинаковое -тестовое 2',
             'deadline'=>'2019-09-1',
             'status'=>'3',
-            'autor_id'=>'1'
-            ]);*/
+            'author_id'=>'1',
+            ]);
+//тестовые задачи для тестовой компании
+DB::table('dot_tasks')->insert([
+            'name' => 'Тестовая задача1',
+            'dot_id' => '5',
+            'responsible_id' => '2',
+            'company_id' => '2',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            'problem' => 'Описание проблем у всех точек пока будет одинаковое -тестовое 3',
+            'description' => 'Описание для тестовой задачи1',
+            'deadline'=>'2019-09-1',
+            'status'=>'4',
+            'author_id'=>'1',
+            ]);
+DB::table('dot_tasks')->insert([
+            'name' => 'Тестовая задача2',
+            'dot_id' => '5',
+            'responsible_id' => '1',
+            'company_id' => '2',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            'description' => 'Описание для тестовой задачи2',
+            'problem' => 'Описание проблем у всех точек пока будет одинаковое -тестовое 4',
+            'deadline'=>'2019-09-1',
+            'status'=>'2',
+            'author_id'=>'2',
+            ]);
+DB::table('dot_tasks')->insert([
+            'name' => 'Тестовая задача3',
+            'dot_id' => '5',
+            'responsible_id' => '2',
+            'company_id' => '2',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            'description' => 'Описание для тестовой задачи4',
+            'problem' => 'Описание проблем у всех точек пока будет одинаковое -тестовое 5',
+            'deadline'=>'2019-09-1',
+            'status'=>'5',
+            'author_id'=>'2',
+            ]);
 
 
 

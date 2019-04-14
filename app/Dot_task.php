@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dot_task extends Model
 {
+   /*  protected $fillable = ['from_user_id'];*/
+
+protected $fillable = [
+        'name', 'problem', 'description', 'deadline', 'company_id', 'author_id', 'responsible_id', 'dot_id',
+    ];
+
     //у каждой задачи лишь одна точка
      public function dot()
     {
@@ -19,13 +25,14 @@ class Dot_task extends Model
     }
 
     // у задачи может быть только один ответственны
-    public function autor()
+    public function author()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User', 'author_id');
     }
     // у задачи только один постановщик
     public function responsible()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User', 'responsible_id');
     }
+
 }

@@ -14,7 +14,7 @@ class CreateChartsTable extends Migration
     public function up()
     {
         Schema::create('charts', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('type')->default('line');
             $table->string('title');
             $table->string('company_id');

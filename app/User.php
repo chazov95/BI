@@ -51,7 +51,7 @@ class User extends Authenticatable
 //пользователь может быть автором многих задач
       public function authors()
     {
-        return $this->hasMany('App\Dot_tasks', 'autor_id');
+        return $this->hasMany('App\Dot_tasks', 'author_id');
     }
 
     //пользователь может быть ответственным по многим задачам

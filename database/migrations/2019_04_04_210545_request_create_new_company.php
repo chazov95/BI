@@ -14,11 +14,11 @@ class RequestCreateNewCompany extends Migration
     public function up()
     {
         Schema::create('new_company_requests', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->integer('admin_id');
             $table->string('name');
-            $table->text('description_full');
-            $table->string('description_short');
+            $table->text('description');
+            $table->string('city')->default('');
             $table->string('logo')->default('');
             $table->string('adress')->default('');
             $table->string('phone')->default('');

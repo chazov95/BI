@@ -14,7 +14,7 @@ class CreateDotTable extends Migration
     public function up()
     {
         Schema::create('dots', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('name', 120);
             $table->integer('parent_id')->default(0);
             $table->string('logo')->default('/img/default/dot.png');
