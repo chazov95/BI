@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Dot_task extends Model
 {
    /*  protected $fillable = ['from_user_id'];*/
+
+protected $fillable = [
+        'name', 'problem', 'description', 'deadline',
+    ];
+
     //у каждой задачи лишь одна точка
      public function dot()
     {

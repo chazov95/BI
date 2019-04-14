@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Dot_task;
+
 class AjaxController extends Controller
 {
     public function taskContent(Request $request){
@@ -22,18 +23,25 @@ class AjaxController extends Controller
 	
 }
 
+
+/**
+ * Функция обновляет информацию, пришедшую из модального окна
+ * @param  Request $request принимает модель запроса
+ * @return  не знаю, что возвращает))           [description]
+ */
 public function editTask(Request $request)
 {
-	$this->validator($request, [
+$reqArray = $request->all();
+$this->validate($request, [
 'name' => 'required',
 'problem' => 'required|max:2000',
 'description' => 'required|max:2000',
-'deadline' => 'required'
+'deadline' => 'required',
 	]);
 
-	$taskId=$request->input('id');
-	$taskModelUpdate = Dot_task::find($taskId)->update($request->all());
-	dump($taskModelUpdate);
+$taskId=$request->input('id');
+$taskModelUpdate = Dot_task::find($taskId)->update($reqArray);
+
 }
 
 }

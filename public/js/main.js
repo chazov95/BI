@@ -144,7 +144,13 @@ function submitChanges(taskid) {
     var problem = $('#taskEditedProblem').val();
     var description = $('#taskEditedDescription').val();
     var deadline = $('#taskEditedDeadline').val();
-  $.ajax({
+    var token = $('meta[name="csrf-token"]').attr('content');
+    $.post('/edit/Task', {_token : token, id : taskid, name : name, problem : problem, description : description, deadline : deadline}, function(result ){
+   $('#mainModalLabel').html( name );
+    $('#mainModalBody').html( 'Задача отредактирована' );
+    $('#mainModalFooter').html( ' ' );
+     });
+/*  $.ajax({
                     url : "/edit/Task",
                     headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                     data: {
@@ -156,8 +162,38 @@ function submitChanges(taskid) {
                     },
                     datatype: 'JSON',
                     type: "POST",
-                    success: function() {
-$('#mainModalBody').html( 'Задача обновлена');
+                    success: function(data) {
+$('#mainModalBody').html( data );
+$('#mainModalLabel').html( name );
+$('#mainModalFooter').html( ' ' );
+
                     }
-});
+});*/
 }
+
+
+function addTask() {
+ 
+   $('#mainModalLabel').html( 
+          
+          '<div class="form-group">'+
+            '<input type="text" class="form-control w-100" id="taskEditedName" placeholder="Заголовок" value="" rows="5" >'+
+            '</div>'
+            );
+    $('#mainModalBody').html( 
+    '<div class="form-group">'+
+        '<label for="taskEditedProblem"><b>В чем проблема</b></label>'+
+        '<textarea type="text" class="form-control" id="taskEditedProblem" rows="4">'+
+      '</textarea></div>'+
+      '<div class="form-group">'+
+        '<label for="taskEditedDescription"><b>Как исправить</b></label>'+
+        '<textarea type="text" class="form-control" id="taskEditedDescription" rows="4">'+
+      '</textarea></div>'+
+      '<div class="form-group">'+
+        '<label for="taskEditedDeadline"><b>Крайний срок</b></label>'+
+        '<input type="date" class="form-control w-50" id="taskEditedDeadline" value="" rows="5" >'+
+        '</div>'
+     );
+    $('#mainModalFooter').html( '<button type="button" href="#" onClick="postNewTask()" class="btn btn-success" >Добавить задачу</button> ' );
+
+ }
