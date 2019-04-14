@@ -89,6 +89,7 @@ public function editProfile($id)
             'user'=> $user, 
         ]);
     }
+
 public function profile($id)
     {
         $userID = Auth::user()->id;
@@ -97,6 +98,7 @@ public function profile($id)
             'user'=> $user, 
         ]);
     }
+
 public function allTasks($id)
     {
         $userID = Auth::user()->id;
@@ -138,9 +140,6 @@ public function allTasks($id)
   ['author_id', '=', $userID],
     ])->get();
 
-
-
-
   return view('allTasks')->with([
             'user'=> $user,
             'allCompanies'=> $allCompanies,
@@ -152,13 +151,19 @@ public function allTasks($id)
         ]);
     }
 
-      public function about()
+
+public function about()
  {
         $userID = Auth::user()->id;
         $user = User::find($userID);
   return view('about')->with([
             'user'=> $user,
           ]);
+ }
+
+public function registerCompany()
+ {
+  return view('registerCompany');
  }
 
 }

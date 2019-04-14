@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'IndexController@index');
-Route::get('/registerCompany', 'IndexController@registerCompany')->name('registerCompany');
+Route::get('/registerCompany', 'HomeController@registerCompany')->name('registerCompany');
 Route::get('/company/{id}/edit', 'IndexController@editCompany')->name('editCompany');
 Route::get('/company/{id}/dot/{dotId}', 'CompanyController@dotIndex')->name('dotIndex');
 Route::get('/profile/{id}/edit/', 'HomeController@editProfile')->name('editProfile');
@@ -21,8 +21,10 @@ Route::get('/profile/{id}/alltasks/', 'HomeController@allTasks')->name('allTasks
 Route::get('/about', 'HomeController@about')->name('about');
 
 //роуты для аякс запросов
-Route::POST('/taskContent','AjaxController@taskContent');
-Route::POST('/edit/Task','AjaxController@editTask');
+Route::POST('/taskContent','AjaxController@taskContent');//получает содержимое задачи
+Route::POST('/edit/Task','AjaxController@editTask');//редактирует задачу
+Route::POST('/get/responsibles','AjaxController@getCompanyUsers');//отдает ответственного
+Route::POST('/push/task/new','AjaxController@pushNewTask');//постит новую задачу в текущую точку
 
 
 

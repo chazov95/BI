@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Dot_task;
+use App\Company;
 
 class AjaxController extends Controller
 {
@@ -23,6 +24,20 @@ class AjaxController extends Controller
 	
 }
 
+/**
+ * возвращает списко пользователей, зарегистрированных в компании в видео выпадающего списка для выбора
+ * @param string $value [description]
+ */
+public function getCompanyUsers(Request $request)
+{
+    $companyId=$request->input('id');
+    $company = Company::find($companyId);
+    $users=$company->users()->get();
+    foreach ($users as $user) {
+
+        echo '<option value="'.$user->id.'">'.$user->real_name.' '.$user->real_lastname.'</option>';
+    }
+}
 
 /**
  * Функция обновляет информацию, пришедшую из модального окна
@@ -42,6 +57,28 @@ $this->validate($request, [
 $taskId=$request->input('id');
 $taskModelUpdate = Dot_task::find($taskId)->update($reqArray);
 
+}
+
+/**
+ * Постит новую задачу к текущей точке
+ * @param  Request $request [description]
+ * @return [type]           [description]
+ */
+public function pushNewTask(Request $request)
+{
+$reqArray = $request->all();
+$this->validate($request, [
+'name' => 'required',
+'problem' => 'required|max:2000',
+'description' => 'required|max:2000',
+'company_id' => 'required',
+'author_id' => 'required',
+'dot_id' => 'required',
+'responsible_id' => 'required',
+    ]);
+$dot_task = new Dot_task;
+dump ($dot_task);
+$dot_task->fill($reqArray);
 }
 
 }

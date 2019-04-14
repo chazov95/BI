@@ -101,7 +101,7 @@ echo count($tasks_status1)+count($tasks_status2)+count($tasks_status3)+count($ta
 <div class="container">
   <div class="row">
     <div class="col-sm">
-      <button type="button" href="#" onClick="addTask()" class="btn btn-success" data-toggle="modal" data-target="#mainModal">Добавить задачу</button>
+      <button type="button" href="#" onClick="addTask({{ $company->id }}, {{ $dot->id }}, {{ $user->id }})" class="btn btn-success" data-toggle="modal" data-target="#mainModal">Добавить задачу</button>
     </div>
     <div class="col-sm"><h2>Точечные идеи</h2></div>
     <div class="col-sm"></div>
